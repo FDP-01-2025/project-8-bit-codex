@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    int hp, def, strenght, dex, intel, luck, option;
+    int hp, def, strenght, dex, intel, luck, option, object, healthpot = 10, resistancepot = 10, damagepot = 10;
     cout << "select your clase" << endl;
     cout << "1- assassin" << endl;
     cout << "2- mage" << endl;
@@ -21,6 +21,7 @@ int main()
         intel = 5;
         luck = 10;
 
+        object= resistancepot;
         cout << "you have selected the asassin class, which its caracterized by his high chances of a critic hit" << endl;
         break;
     case 2:
@@ -31,6 +32,7 @@ int main()
         intel = 20;
         luck = 6;
 
+        object = resistancepot;
         cout << "you have slected the mage class, which its caracterized by his high intelligence" << endl;
         break;
     case 3:
@@ -41,6 +43,7 @@ int main()
         intel = 3;
         luck = 4;
 
+        object = healthpot;
         cout << "you have selected the class knight, which its caracterized by his defense" << endl;
         break;
         hp = 20;
@@ -50,6 +53,7 @@ int main()
         intel = 0;
         luck = 5;
 
+        object = damagepot;
         cout << "you have selected berserk class, which its caracterized by his high hp" << endl;
     default:
         cout << "select a valid option";
