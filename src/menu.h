@@ -1,17 +1,25 @@
 #ifndef menu_H
 #define menu_H
 
+#include "new.h"
+#include "load.h"
+#include "character.h"
 #include <iostream>
 #include <conio.h>
+
 #define TECLA_ARRIBA 72
 #define TECLA_ABAJO 80
 #define ENTER 13
 using namespace std;
-
-void menu_principal();
-void menu_new();
-void menu_load();
-
+void menu_new()
+{
+    new_game();
+}
+void menu_load()
+{
+    character assasin;
+    load_game(assasin);
+}
 void menu_principal()
 {
     int tecla;
@@ -58,16 +66,4 @@ void menu_principal()
         }
     }while (repite);
 }
-
-void menu_new()
-{
-    cout <<"New game..."<<endl;
-    system("pause");
-}
-void menu_load()
-{
-    cout<<"Load game..."<<endl;
-    system("pause");
-}
-
 #endif
