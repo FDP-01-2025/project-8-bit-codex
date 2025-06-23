@@ -2,6 +2,8 @@
 #define imagen_H
 #include <iostream>
 using namespace std;
+
+/*Playable characters*/
 void image_knight()
 {
     cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@@-..::..@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
@@ -100,6 +102,8 @@ void image_berserk()
     cout << "\t\t\t\t          ..+%#*=:..                ...:=*#@+..    " << endl;
     cout << "\t\t\t\t          ....                            .....    " << endl;
 }
+
+/*Enemies*/
 void image_dragon()
 {
     cout << "\t\t\t\t       ...      .-#...  ...     ..                         " << endl;
@@ -153,5 +157,42 @@ void image_zombie(){
     cout << "\t\t\t\t     ... :.:-*: .:+-=++...-:.          " << endl;
     
 }
+
+void image_eskeleton(){
+
+    cout << "\t\t\t\t  &&&            &&&&&                             " << endl;
+    cout << "\t\t\t\t  & &&           &    &                            " << endl;
+    cout << "\t\t\t\t  && &          &&&&  &&                           " << endl;
+    cout << "\t\t\t\t   & &&         &&&&&&&&                           " << endl;
+    cout << "\t\t\t\t    & &&          &&  &&                           " << endl;
+    cout << "\t\t\t\t     && &       && &&  &&&&&&                      " << endl;
+    cout << "\t\t\t\t      & &&     &&&&&  & &&&&&&                     " << endl;
+    cout << "\t\t\t\t       && &     &&   &&&&&   &&&                   " << endl;
+    cout << "\t\t\t\t        & &      &&&         & &&  &&&&            " << endl;
+    cout << "\t\t\t\t        && &    & &&&&& &&  &&&  &&&  &&           " << endl;
+    cout << "\t\t\t\t         & &&  &&  &     & &&  &    &  &           " << endl;
+    cout << "\t\t\t\t         && &&&  & &&&&& &&&& &&  &&   &           " << endl;
+    cout << "\t\t\t\t         && &&  &&     & &  & & &    &&&           " << endl;
+    cout << "\t\t\t\t         &&& &&    &&&&& &&&& & & &&& &&           " << endl;
+    cout << "\t\t\t\t          && &&   &&&  &    & & & &&  &&           " << endl;
+    cout << "\t\t\t\t          &&&&    &&   &   & & & &  &&&            " << endl;
+    cout << "\t\t\t\t          & &&  &&& &&&&&&& & &  &  &&             " << endl;
+    cout << "\t\t\t\t          &&&   &   &&&&&&&&  &   &&&&             " << endl;
+    cout << "\t\t\t\t               && &&&       &&&&&&&&&              " << endl;
+    cout << "\t\t\t\t             &&&            &                      " << endl;
+    cout << "\t\t\t\t            &&&&&           & &&&                  " << endl;
+    cout << "\t\t\t\t            && &&           && &&&&                " << endl;
+    cout << "\t\t\t\t            &&&&&           &&&&  &&               " << endl;
+    cout << "\t\t\t\t            &  &              &&&& &&              " << endl;
+    cout << "\t\t\t\t            & &&                 && &              " << endl;
+    cout << "\t\t\t\t            & &&                  &&&&&            " << endl;
+    cout << "\t\t\t\t            & &                    &  &&&&         " << endl;
+    cout << "\t\t\t\t            & &&                   &&&   &         " << endl;
+    cout << "\t\t\t\t          &&&& && &&                  &&&&&        " << endl;
+    cout << "\t\t\t\t          && &&&&  &                   &&&&        " << endl;
+
+}
+
+  
 
 #endif
