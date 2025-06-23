@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include <conio.h>
+#include <windows.h>
 #include "character.h"
 
 #define TECLA_ARRIBA 72
 #define TECLA_ABAJO 80
 #define ENTER 13
 using namespace std;
-
+int cha;
 void new_game()
 {
     int tecla;
@@ -18,13 +19,13 @@ void new_game()
     do
     {
         system("cls");
-        cout << "===============================" << endl;
-        cout << "         Select you class      " << endl;
-        cout << "===============================" << endl;
-        cout << (opcion == 1 ? "==> " : "   ") << "  Assasin" << endl;
-        cout << (opcion == 2 ? "==> " : "   ") << "  Mage" << endl;
-        cout << (opcion == 3 ? "==> " : "   ") << "  Knight" << endl;
-        cout << (opcion == 4 ? "==> " : "   ") << "  Berserk" << endl;
+        cout << "\t\t\t\t======================================================" << endl;
+        cout << "\t\t\t\t                   Select you class                  " << endl;
+        cout << "\t\t\t\t======================================================" << endl;
+        cout << (opcion == 1 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Assasin" << endl;
+        cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Mage" << endl;
+        cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Knight" << endl;
+        cout << (opcion == 4 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Berserk" << endl;
 
         tecla = getch();
 
@@ -44,48 +45,154 @@ void new_game()
             switch (opcion)
             {
             case 1:
-                cout << " Your character is assasin: " << endl;
-                cout << "HP: " << assasin.hp << endl;
-                cout << "Defense: " << assasin.def << endl;
-                cout << "Strenght:" << assasin.strength << endl;
-                cout << "dexterity: " << assasin.dex << endl;
-                cout << "Inteligence: " << assasin.intel << endl;
-                cout << "Luck: " << assasin.luck << endl;
-                cout << "Inicial object: " << assasin.object << endl;
-                system("pause");
+                system("cls");
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\tYour character is assasin: " << endl;
+                cout << "\t\t\t\tHP: " << assasin.hp << endl;
+                cout << "\t\t\t\tDefense: " << assasin.def << endl;
+                cout << "\t\t\t\tStrenght:" << assasin.strength << endl;
+                cout << "\t\t\t\tdexterity: " << assasin.dex << endl;
+                cout << "\t\t\t\tInteligence: " << assasin.intel << endl;
+                cout << "\t\t\t\tLuck: " << assasin.luck << endl;
+                cout << "\t\t\t\tInicial object: " << assasin.object << endl;
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\t                 .:=-:.:=+:.                 " << endl;
+                cout << "\t\t\t\t      .*.       .=:    -@@@+.       .*.      " << endl;
+                cout << "\t\t\t\t     :=.=:.    .--...::#@@@@=.    .:=.=:     " << endl;
+                cout << "\t\t\t\t      .=:=:    :*::%@@@@@%*@%:    :=-+.      " << endl;
+                cout << "\t\t\t\t       .-+-=   =-:@@@@@@@@@##=   ==+-.       " << endl;
+                cout << "\t\t\t\t         :+-=..+-*@%%@@@%%@%@%..+++:         " << endl;
+                cout << "\t\t\t\t          .=*+#-=%%=%+=*@#@%*@#+*=.          " << endl;
+                cout << "\t\t\t\t           .:*==#@@ .:%@@*%@%%@#:.           " << endl;
+                cout << "\t\t\t\t          .==-+*%@@-.+%@@%@@%*@%#=.          " << endl;
+                cout << "\t\t\t\t       .+=:+=#==*@@@+-#@@@@@*++#**%*+.       " << endl;
+                cout << "\t\t\t\t     .==:- .:*--+#@@@@+@@@@%+*+#=#*%-++.     " << endl;
+                cout << "\t\t\t\t     .+:.....:%#**+@#*@#%@@%%#@+==+*=*+.     " << endl;
+                cout << "\t\t\t\t      --. ..:=%%@%:=#@@@@@@@@%@#+:%=---      " << endl;
+                cout << "\t\t\t\t       -+=..-::*#+##*@@@@@%#%#=+%#+**-       " << endl;
+                cout << "\t\t\t\t        -+++.:+-=-:--+@*#@+-*@@@##+=-.       " << endl;
+                cout << "\t\t\t\t         :+##=*-*=*.===@%=@@@@#=*#+:         " << endl;
+                cout << "\t\t\t\t           ..===+*-..-*+%@@@+--=..           " << endl;
+                cout << "\t\t\t\t             ..+#++#--%@@@*+#+..             " << endl;
+                cout << "\t\t\t\t                 :+#+-@@%%+:                 " << endl;
+                cha = 1;
+                repite = false;
+                Sleep(3000);
                 break;
             case 2:
-                cout << "Your character is Mage: " << endl;
-                cout << "HP: " << mage.hp << endl;
-                cout << "Defense: " << mage.def << endl;
-                cout << "Strenght:" << mage.strength << endl;
-                cout << "dexterity: " << mage.dex << endl;
-                cout << "Inteligence: " << mage.intel << endl;
-                cout << "Luck: " << mage.luck << endl;
-                cout << "Inicial object: " << mage.object << endl;
-                system("pause");
+                system("cls");
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\tYour character is Mage: " << endl;
+                cout << "\t\t\t\tHP: " << mage.hp << endl;
+                cout << "\t\t\t\tDefense: " << mage.def << endl;
+                cout << "\t\t\t\tStrenght:" << mage.strength << endl;
+                cout << "\t\t\t\tdexterity: " << mage.dex << endl;
+                cout << "\t\t\t\tInteligence: " << mage.intel << endl;
+                cout << "\t\t\t\tLuck: " << mage.luck << endl;
+                cout << "\t\t\t\tInicial object: " << mage.object << endl;
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\t                     @@#++%*+*@@             " << endl;
+                cout << "\t\t\t\t                     @%=++#@@@@              " << endl;
+                cout << "\t\t\t\t                    @@+==++@@                " << endl;
+                cout << "\t\t\t\t                    @@*====++@@              " << endl;
+                cout << "\t\t\t\t                    @@=====++#@              " << endl;
+                cout << "\t\t\t\t         @@        @@=======++@@             " << endl;
+                cout << "\t\t\t\t         @@        @%######-:#%@@            " << endl;
+                cout << "\t\t\t\t   @@@   @@@  @@@ @@===========*@            " << endl;
+                cout << "\t\t\t\t      @@#==*@@ @@@*+++++++++++++*@@@         " << endl;
+                cout << "\t\t\t\t     @#..=#@+#@@###################%@@@      " << endl;
+                cout << "\t\t\t\t     @=....=%+@@@%+@=::::=@=:::%**@@@@       " << endl;
+                cout << "\t\t\t\t     @@:::::-%@ @@@@#-*%%%@%#=*@@@@          " << endl;
+                cout << "\t\t\t\t      @@@%%@@@   @@=@#=--=---*@##@           " << endl;
+                cout << "\t\t\t\t      @@%###@@   @==#@**+-=+*%%*=@@          " << endl;
+                cout << "\t\t\t\t        @*+@     @*::%%%@%@%#%--+@@          " << endl;
+                cout << "\t\t\t\t        =-+@   @@@@#::--:::-=--+@@@@         " << endl;
+                cout << "\t\t\t\t        @*+@@@@#***%%:+@-::##-#@***#@@@      " << endl;
+                cout << "\t\t\t\t        @*+@@+======#@=%#:=@--======++%@     " << endl;
+                cout << "\t\t\t\t        @*+@#========*@*@=%%@#======++*@@    " << endl;
+                cout << "\t\t\t\t        @*+@+=========+@@%@@*========++%@    " << endl;
+                cout << "\t\t\t\t        @*+@====%%======%@@+=====*%=+++#@    " << endl;
+                cout << "\t\t\t\t        @*+@===+@#======+*+======+@*+++*@@   " << endl;
+                cout << "\t\t\t\t        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   " << endl;
+                cha = 2;
+                repite = false;
+                Sleep(3000);
                 break;
             case 3:
-                cout << "Your character if Knight: " << endl;
-                cout << "HP: " << knight.hp << endl;
-                cout << "Defense: " << knight.def << endl;
-                cout << "Strenght:" << knight.strength << endl;
-                cout << "dexterity: " << knight.dex << endl;
-                cout << "Inteligence: " << knight.intel << endl;
-                cout << "Luck: " << knight.luck << endl;
-                cout << "Inicial object: " << knight.object << endl;
-                system("pause");
+                system("cls");
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\tYour character is Knight: " << endl;
+                cout << "\t\t\t\tHP: " << knight.hp << endl;
+                cout << "\t\t\t\tDefense: " << knight.def << endl;
+                cout << "\t\t\t\tStrenght:" << knight.strength << endl;
+                cout << "\t\t\t\tdexterity: " << knight.dex << endl;
+                cout << "\t\t\t\tInteligence: " << knight.intel << endl;
+                cout << "\t\t\t\tLuck: " << knight.luck << endl;
+                cout << "\t\t\t\tInicial object: " << knight.object << endl;
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@@-..::..@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@:.#@@*=#@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@+:%+..*@@=:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@++*@@@@@@+:#@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@*.-@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@#@@@@%:...-#@@@@=..@%.*@@@@@=......+@#+@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@+.....##+....:@@@@@...@@@............@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@::@@-.@#......%.....+@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@#=.=@@*******@#.....@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@*-*@@@=.......@@@@...@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@#=.:+@@#-...=%%--:.=@@@@=...+@@@*:=@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@%.....@#+@@@@@@--@@*-:.@%.:@@@.*@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@=..:@@@#:......=%@@@@#.=@+....*@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@:..@@@-............:@#.%%.......@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@%...@@@=.....+@:.....@#*@*......=@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@.--.....@@@#.....@@+-----@*-*@=.....@#*@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@:....+@@@@-...:@%-%@@@*+@#--=@%...@%::..+@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@-...-%@*-+@@@@@@@@@@@@@..%@@@+.*@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@@..%@@#--@@@@@@@@@@@@@@@..@+..=@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@:.#@@@@@=:*@@@@@@@@@@@@@..@#@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@@..@@@@@@@@..%@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@#.+@@@@@@@@@*.-@@@@@@@@@@..@@@@@@@@@@@@@@@@@@" << endl;
+                cout << "\t\t\t\t@@@@@@@@@*++++++++++++++++++++++++++++++++@@@@@@@@@@@@" << endl;
+                cha = 3;
+                repite = false;
+                Sleep(3000);
                 break;
             case 4:
-                cout <<"Your character is Berserker: "<<endl;
-                cout << "HP: " << berserk.hp << endl;
-                cout << "Defense: " << berserk.def << endl;
-                cout << "Strenght:" << berserk.strength << endl;
-                cout << "dexterity: " << berserk.dex << endl;
-                cout << "Inteligence: " << berserk.intel << endl;
-                cout << "Luck: " << berserk.luck << endl;
-                cout << "Inicial object: " << berserk.object << endl;
-                system("pause");
+                system("cls");
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\tYour character is Berserker: " << endl;
+                cout << "\t\t\t\tHP: " << berserk.hp << endl;
+                cout << "\t\t\t\tDefense: " << berserk.def << endl;
+                cout << "\t\t\t\tStrenght:" << berserk.strength << endl;
+                cout << "\t\t\t\tdexterity: " << berserk.dex << endl;
+                cout << "\t\t\t\tInteligence: " << berserk.intel << endl;
+                cout << "\t\t\t\tLuck: " << berserk.luck << endl;
+                cout << "\t\t\t\tInicial object: " << berserk.object << endl;
+                cout << "\t\t\t\t======================================================" << endl;
+                cout << "\t\t\t\t                  ..+@+..                   " << endl;
+                cout << "\t\t\t\t                .+%@@@@@@*.                 " << endl;
+                cout << "\t\t\t\t              .-@@@@@@@@@@@=.               " << endl;
+                cout << "\t\t\t\t              .#@@@@@@@@@@@#.               " << endl;
+                cout << "\t\t\t\t              .#@@@@@@@@@@@%:               " << endl;
+                cout << "\t\t\t\t              .#-.+#@@@%+.-#:               " << endl;
+                cout << "\t\t\t\t              .#%+:.+@*.:+%%:               " << endl;
+                cout << "\t\t\t\t              .#@@@++@+=@@@%:               " << endl;
+                cout << "\t\t\t\t     .:..     .#@@@++@*=@@@#:     ..:..     " << endl;
+                cout << "\t\t\t\t    :%@@=     .=@@@+...=@@@=.    .=@@%:     " << endl;
+                cout << "\t\t\t\t    .=#%%=...*:.=@@+. .=@@=.:#...=%%#=.     " << endl;
+                cout << "\t\t\t\t       ..*@@@:  ..--. .-=.. .:@@@*..        " << endl;
+                cout << "\t\t\t\t        .:@@@%.   ... ...  ..%@@@:.         " << endl;
+                cout << "\t\t\t\t       .-=...+%#-.      ..:#@*...==.        " << endl;
+                cout << "\t\t\t\t              .:*@#-...-#@*:.               " << endl;
+                cout << "\t\t\t\t          ........=@@@@@=........           " << endl;
+                cout << "\t\t\t\t        ..@@@@@@@@@@#+#@@@@@@@@@@..         " << endl;
+                cout << "\t\t\t\t       .-%@@@@@@@#:.....:*@@@@@@@@-.        " << endl;
+                cout << "\t\t\t\t     ..+@@@@@%=..         ..=%@@@@@+.       " << endl;
+                cout << "\t\t\t\t   ..+%#*=:..                ...:=*#@+..    " << endl;
+                cout << "\t\t\t\t   ....                            .....    " << endl;
+                cha = 4;
+                repite = false;
+                Sleep(3000);
                 break;
             }
             break;
