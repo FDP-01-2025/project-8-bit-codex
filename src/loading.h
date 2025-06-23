@@ -10,7 +10,7 @@ void loading(){
     cout <<"Loading Please Wait     "<<endl;
     for (int i = 1; i <=20; i++){
         cout <<x;
-        Sleep(600);
+        Sleep(200);
     }
 }
 #endif

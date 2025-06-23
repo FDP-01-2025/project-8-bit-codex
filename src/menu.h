@@ -5,6 +5,7 @@
 #include "load.h"
 #include "character.h"
 #include "loading.h"
+#include "imagen.h"
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
@@ -15,11 +16,15 @@
 using namespace std;
 void menu_new()
 {
-    new_game();
+    character player;
+    string className;
+    new_game(player, className);
 }
 void menu_load(int cla)
 {
-    //-----------------------------------------------------------------------
+    character player;
+    string className;
+    load_game(player, className);
 }
 void menu_principal()
 {
@@ -95,31 +100,7 @@ void menu_principal()
         cout << "\t\t\t\tOnly you will be able to free them while" << endl;
         cout << "\t\t\t\tThis is your fate..." << endl;
         cout << "\t\t\t\t======================================================" << endl;
-        cout << "\t\t\t\t        ...      .-#...  ...     ..                         " << endl;
-        cout << "\t\t\t\t        :=...    .+#-..  ..:..  ......                      " << endl;
-        cout << "\t\t\t\t        .%%-.    .:@*..  .::..  ..*-..                      " << endl;
-        cout << "\t\t\t\t        ..#@#=.....*@#:...=#..  ..#*..                      " << endl;
-        cout << "\t\t\t\t          .=@@#**++=@@%*-.#@+.....##-.                      " << endl;
-        cout << "\t\t\t\t          ...=@@%##*#@@@###%@#:...#@#:.....                 " << endl;
-        cout << "\t\t\t\t             =%@@@@%#*#%@@%#####*##@%*.-...                 " << endl;
-        cout << "\t\t\t\t          .:%########%%%#*#%%####@@@@@#-*....               " << endl;
-        cout << "\t\t\t\t        ..==-:-%@@@@@@@@@@@@%%#%##%@@@@%##*..               " << endl;
-        cout << "\t\t\t\t          ...+@@@%####%@@@#@@@@%#%%#%@@@@##*:..             " << endl;
-        cout << "\t\t\t\t          ..-##%###%@@@@@%@@@@%%@@%%%#%@@@@##:.             " << endl;
-        cout << "\t\t\t\t        ..-+-:=##%@@@%#%@@@@@%**#%@@@@%#%@@@#*=             " << endl;
-        cout << "\t\t\t\t          ...*%%@@@@##@@@@@@@@@##@@#@@@@@%#@@%+..           " << endl;
-        cout << "\t\t\t\t          ..%%@@@@%#%@@@@@@@@%@@@#**%@@@@@-%##*.....        " << endl;
-        cout << "\t\t\t\t          .@%@%@@@#%@@@@@@@@@%..#@@@@@%*%@%%@@*#=...        " << endl;
-        cout << "\t\t\t\t        ..%@@%@@@%#@@@@@@@@#@=.=%#:.-@@@@@@@@%%%#*=:        " << endl;
-        cout << "\t\t\t\t        .+@%%@@@@##@@@@@@@@#*#:.  :-...==:=#@@@@%##:        " << endl;
-        cout << "\t\t\t\t        .+@#.#@@@#%@@@@@@@@%*#**:.......=**###%@@#=.        " << endl;
-        cout << "\t\t\t\t        ..%-.=@@@%#@@@%###%%@%#*##+........@@@%%#:..        " << endl;
-        cout << "\t\t\t\t        ......-@%@#%@@@@######%@%*%#*:.. ..*=@#...          " << endl;
-        cout << "\t\t\t\t               ..%%#@@@@@@%######%%#%*#-... .-.             " << endl;
-        cout << "\t\t\t\t               ...+%#%@@@@@@@@%####@@%*%+.  ...             " << endl;
-        cout << "\t\t\t\t                 ...-##%@@@@@@@@@%##%@*%@.                  " << endl;
-        cout << "\t\t\t\t                    ...-*@@@@@@%@@@##@#%%..                 " << endl;
-        cout << "\t\t\t\t                         ..:=-%*=@@@#@#@=..                 " << endl;
+        image_dragon();
         loading();
         system("cls");
     }
