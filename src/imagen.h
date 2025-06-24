@@ -253,4 +253,33 @@ cout << "\t\t\t\t                .=%.   .=%..#-.        ..*%%%##%%%##%%.        
                                                                                  
 }
 
+void image_young_dragon(){
+
+cout << "\t\t\t\t                              @@@@                     " << endl;
+cout << "\t\t\t\t                 :-@@@      @@@  @@=                   " << endl;
+cout << "\t\t\t\t              =@@%   @     @ +%: @@@                   " << endl;
+cout << "\t\t\t\t          %@*@ :    +=     @   @ @ +@@                 " << endl;
+cout << "\t\t\t\t         @@ .@@@  @@%=    @  @ @ @   @@@               " << endl;
+cout << "\t\t\t\t                @ @       @  @**   * @ +@              " << endl;
+cout << "\t\t\t\t               +@ @      @+  @@ *. @  @  @             " << endl;
+cout << "\t\t\t\t               @+ @@    @+   @  @  *@  @  @            " << endl;
+cout << "\t\t\t\t               @   =@@@*   @+   @   @   @  @           " << endl;
+cout << "\t\t\t\t               @                @   @   %@  @          " << endl;
+cout << "\t\t\t\t               @    %@@@@@@@    @   #@   @   @         " << endl;
+cout << "\t\t\t\t               @@   @+   . %@.        @   @@@@         " << endl;
+cout << "\t\t\t\t                 @@   @   @@=  @@@     @@@             " << endl;
+cout << "\t\t\t\t                   @@   @#   @+=  @@  @@               " << endl;
+cout << "\t\t\t\t              *.     @@   @   @@    @@@                " << endl;
+cout << "\t\t\t\t            @*         =@. @+                          " << endl;
+cout << "\t\t\t\t           @             @# @                          " << endl;
+cout << "\t\t\t\t          @*              @ @                          " << endl;
+cout << "\t\t\t\t          @=              @ @                          " << endl;
+cout << "\t\t\t\t          @:             -* @                          " << endl;
+cout << "\t\t\t\t          @%             @ @                           " << endl;
+cout << "\t\t\t\t           @@          =@+@                            " << endl;
+cout << "\t\t\t\t            :@@@     @@@@                              " << endl;
+cout << "\t\t\t\t               -@@@@@@                                 " << endl;
+
+}
+
 #endif
