@@ -282,4 +282,37 @@ cout << "\t\t\t\t               -@@@@@@                                 " << end
 
 }
 
+void image_orc(){
+
+
+cout << "\t\t\t\t                            .:  :;                        " << endl;
+cout << "\t\t\t\t                           .;+;+;x:                       " << endl;
+cout << "\t\t\t\t                          +++;xX: .                       " << endl;
+cout << "\t\t\t\t                     .:;++XXXXXXXxx++;:                   " << endl;
+cout << "\t\t\t\t                   :;;:;.::$$$$XXX$Xx;+:                  " << endl;
+cout << "\t\t\t\t                  .++;+::..:X$XxX$$XXxx+;                 " << endl;
+cout << "\t\t\t\t                  .;x+X::..:X+X$$$XxX$X$+                 " << endl;
+cout << "\t\t\t\t                  ;: .xXXX++x$$$XXXXXX:.:;                " << endl;
+cout << "\t\t\t\t                 .+.;++:X++X$$$Xx:;:.+xXX:;.              " << endl;
+cout << "\t\t\t\t                ::+XX+  ;$$xX$x+++X.   xXX+XX;.           " << endl;
+cout << "\t\t\t\t               :;+X$$; .XX$X;;+xXXX;.  .X$XXXX:           " << endl;
+cout << "\t\t\t\t               :;xX$X: .X$XXXx+xXX$X:   ;XX$X++.          " << endl;
+cout << "\t\t\t\t               ;+X$;  .+$XX$$$$X$X$$x   . x$Xx:           " << endl;
+cout << "\t\t\t\t               ::+X;:XXX$X+X$$$X$$$XXX:  ;XX+.:           " << endl;
+cout << "\t\t\t\t               .: xXX++$X$XxXxXX$$$XX+;  ;$X+X:           " << endl;
+cout << "\t\t\t\t         ..   .;+XXX+.+$$$$$xXX$$$XXx:;:  ..              " << endl;
+cout << "\t\t\t\t       ;XXX.:+Xx;:.  .xX$$$$X$XX+XxXx;;:                  " << endl;
+cout << "\t\t\t\t        ;XXXX+.      .:X$$$x$$;;. +XXXX;                  " << endl;
+cout << "\t\t\t\t        :xXX;        .+$$$XXXX:   +$$$X+;                 " << endl;
+cout << "\t\t\t\t         :XXXx+xXX+  ;X$$$$x;;.   ;$$$X+xx.               " << endl;
+cout << "\t\t\t\t         :X$$$$$X;   .:X$$$+..   ;$$$$XX$x.               " << endl;
+cout << "\t\t\t\t        .+$$x+:.       +$$+.  . :x;+x$$$::                " << endl;
+cout << "\t\t\t\t                 ....:+X$$x;:;......+$$X;                 " << endl;
+cout << "\t\t\t\t               .:;x$X$$$$$$$$Xx+xXXXX$X+;;;;;:..          " << endl;
+     
+
+
+
+}
+
 #endif
