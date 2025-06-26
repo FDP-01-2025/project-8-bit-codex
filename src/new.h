@@ -6,6 +6,8 @@
 #include <windows.h>
 #include "character.h"
 #include "imagen.h"
+#include "menu.h"
+#include "Screen.h"
 
 #define TECLA_ARRIBA 72
 #define TECLA_ABAJO 80
@@ -13,12 +15,13 @@
 using namespace std;
 void new_game(character &player, string &className)
 {
+    hideCursor();
     int tecla;
     bool repite = true;
     int opcion = 1;
     do
     {
-        system("cls");
+        gotoxy(0, 0);
         cout << "\t\t\t\t======================================================" << endl;
         cout << "\t\t\t\t                   Select you class                  " << endl;
         cout << "\t\t\t\t======================================================" << endl;
@@ -32,11 +35,15 @@ void new_game(character &player, string &className)
         switch (tecla)
         {
         case TECLA_ARRIBA:
+        case 'w':
+        case 'W':
             opcion--;
             if (opcion < 1)
                 opcion = 4;
             break;
         case TECLA_ABAJO:
+        case 's':
+        case 'S':
             opcion++;
             if (opcion > 4)
                 opcion = 1;
