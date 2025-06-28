@@ -17,7 +17,7 @@ void menu_new()
     string className;
     new_game(player, className);
 }
-void menu_load(int cla)
+void menu_load()
 {
     character player;
     string className;
@@ -83,7 +83,7 @@ void menu_principal()
                 break;
             case 2:
                 system("cls");
-                menu_load;
+                menu_load();
                 cas = 2;
                 repite = false;
                 break;

@@ -7,7 +7,6 @@ using namespace std;
 
 string chest()
 {
-    int N;
     srand(time(NULL));
     int num = (rand() % 5) + 1;
 

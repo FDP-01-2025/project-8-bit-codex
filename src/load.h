@@ -5,11 +5,12 @@
 #include "entities/character.h"
 using namespace std;
 
-bool load_game(character &player, string &class_name)
+bool load_game(character &player, string &className)
 {
     ifstream archivo("save_tower.txt");
     if (archivo.is_open())
     {
+        archivo >> className;
         archivo >> player.hp;
         archivo >> player.def;
         archivo >> player.strength;

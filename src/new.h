@@ -6,7 +6,7 @@
 #include "entities/character.h"
 #include "imagen.h"
 #include "menu.h"
-#include "inventory.h"
+#include "Inventory.h"
 #include "utils/Screen.h"
 #include "utils/inputs.h"
 using namespace std;
@@ -61,11 +61,11 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
                 if(player.object == 1){
-                    addToInventory(" Potion of Life");
+                    addToInventory("Potion of Life");
                 } else if(player.object == 2){
-                    addToInventory(" Potion of Strength");
+                    addToInventory("Potion of Strength");
                 } else {
-                    addToInventory(" Potion of Defense");
+                    addToInventory("Potion of Defense");
                 }
                 cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
@@ -86,11 +86,11 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
                 if(player.object == 1){
-                    addToInventory(" Potion of Life");   
+                    addToInventory("Potion of Life");   
                 } else if(player.object == 2){
-                    addToInventory(" Potion of Strength");
+                    addToInventory("Potion of Strength");
                 } else {
-                    addToInventory(" Potion of Defense");
+                    addToInventory("Potion of Defense");
                 }
                 cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
@@ -111,11 +111,11 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
                 if(player.object == 1){
-                    addToInventory(" Potion of Life");
+                    addToInventory("Potion of Life");
                 } else if(player.object == 2){
-                    addToInventory(" Potion of Strength");
+                    addToInventory("Potion of Strength");
                 } else {
-                    addToInventory(" Potion of Defense");
+                    addToInventory("Potion of Defense");
                 }
                 cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
@@ -136,11 +136,11 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
                 if(player.object == 1){
-                    addToInventory(" Potion of Life");
+                    addToInventory("Potion of Life");
                 } else if(player.object == 2){
-                    addToInventory(" Potion of Strength");
+                    addToInventory("Potion of Strength");
                 } else {
-                    addToInventory(" Potion of Defense");
+                    addToInventory("Potion of Defense");
                 }
                 cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
