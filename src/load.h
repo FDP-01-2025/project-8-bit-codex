@@ -17,6 +17,7 @@ bool load_game(character &player, string &class_name)
         archivo >> player.intel;
         archivo >> player.luck;
         archivo >> player.object;
+        archivo >> player.level;
         archivo.close();
         cout << "successfully loaded game" << endl;
         system("pause");

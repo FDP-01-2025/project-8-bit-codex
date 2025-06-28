@@ -18,6 +18,7 @@ void save(const character &player, const string &class_name)
         archivo << player.intel << endl;
         archivo << player.luck << endl;
         archivo << player.object << endl;
+        archivo << player.level << endl;
         archivo.close();
         cout << "successfully saved game" << endl;
     }

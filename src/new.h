@@ -8,6 +8,7 @@
 #include "imagen.h"
 #include "menu.h"
 #include "Screen.h"
+#include "inventory.h"
 
 #define TECLA_ARRIBA 72
 #define TECLA_ABAJO 80
@@ -63,7 +64,14 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tdexterity: " << player.dex << endl;
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
-                cout << "\t\t\t\tInicial object: " << player.object << endl;
+                if(player.object == 1){
+                    addToInventory(" Potion of Life");
+                } else if(player.object == 2){
+                    addToInventory(" Potion of Strength");
+                } else {
+                    addToInventory(" Potion of Defense");
+                }
+                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_assasin();
                 repite = false;
@@ -81,7 +89,14 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tdexterity: " << player.dex << endl;
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
-                cout << "\t\t\t\tInicial object: " << player.object << endl;
+                if(player.object == 1){
+                    addToInventory(" Potion of Life");   
+                } else if(player.object == 2){
+                    addToInventory(" Potion of Strength");
+                } else {
+                    addToInventory(" Potion of Defense");
+                }
+                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_mage();
                 repite = false;
@@ -99,7 +114,14 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tdexterity: " << player.dex << endl;
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
-                cout << "\t\t\t\tInicial object: " << player.object << endl;
+                if(player.object == 1){
+                    addToInventory(" Potion of Life");
+                } else if(player.object == 2){
+                    addToInventory(" Potion of Strength");
+                } else {
+                    addToInventory(" Potion of Defense");
+                }
+                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_knight();
                 repite = false;
@@ -117,7 +139,14 @@ void new_game(character &player, string &className)
                 cout << "\t\t\t\tdexterity: " << player.dex << endl;
                 cout << "\t\t\t\tInteligence: " << player.intel << endl;
                 cout << "\t\t\t\tLuck: " << player.luck << endl;
-                cout << "\t\t\t\tInicial object: " << player.object << endl;
+                if(player.object == 1){
+                    addToInventory(" Potion of Life");
+                } else if(player.object == 2){
+                    addToInventory(" Potion of Strength");
+                } else {
+                    addToInventory(" Potion of Defense");
+                }
+                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_berserk();
                 repite = false;
