@@ -3,17 +3,12 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
-#include "character.h"
-#include "enemies.h"
-#include "Screen.h"
+#include "entities/character.h"
+#include "entities/enemies.h"
+#include "utils/Screen.h"
 #include "chest.h"
-#define TECLA_ARRIBA 72
-#define TECLA_ABAJO 80
-#define ENTER 13
-#define ESC 27
-
+#include "utils/inputs.h"
 using namespace std;
-
 const int MAX_ITEMS = 10;
 extern string inventory[MAX_ITEMS];
 extern int itemCount;
@@ -75,7 +70,6 @@ void Inventory()
         }
     } while (repite);
 }
-
 void addToInventory(const string &item)
 {
     if (item.empty())
@@ -90,7 +84,6 @@ void addToInventory(const string &item)
         cout << "Full inventory!" << endl;
     }
 }
-
 void showInventory()
 {
     cout << "\n--- Inventory ---\n";
@@ -100,7 +93,6 @@ void showInventory()
     }
     cout << "------------------\n";
 }
-
 void chest_final()
     {
         for (int i = 0; i < 5; ++i)

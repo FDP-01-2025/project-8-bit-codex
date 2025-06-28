@@ -2,8 +2,8 @@
 #define load_H
 #include <iostream>
 #include <fstream>
+#include "entities/character.h"
 using namespace std;
-#include "character.h"
 
 bool load_game(character &player, string &class_name)
 {

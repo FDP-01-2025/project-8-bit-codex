@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-#include "character.h"
+#include "entities/character.h"
 #include "new.h"
 
 void save(const character &player, const string &class_name)

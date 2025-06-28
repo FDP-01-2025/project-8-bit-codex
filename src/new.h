@@ -1,18 +1,14 @@
 #ifndef new_H
 #define new_H
-
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
-#include "character.h"
+#include "entities/character.h"
 #include "imagen.h"
 #include "menu.h"
-#include "Screen.h"
 #include "inventory.h"
-
-#define TECLA_ARRIBA 72
-#define TECLA_ABAJO 80
-#define ENTER 13
+#include "utils/Screen.h"
+#include "utils/inputs.h"
 using namespace std;
 void new_game(character &player, string &className)
 {

@@ -1,18 +1,14 @@
 #ifndef menu_H
 #define menu_H
-
 #include "new.h"
 #include "load.h"
-#include "character.h"
+#include "entities/character.h"
 #include "loading.h"
 #include "imagen.h"
-#include "Screen.h"
+#include "utils/Screen.h"
+#include "utils/inputs.h"
 #include <iostream>
 #include <conio.h>
-
-#define TECLA_ARRIBA 72
-#define TECLA_ABAJO 80
-#define ENTER 13
 using namespace std;
 
 void menu_new()

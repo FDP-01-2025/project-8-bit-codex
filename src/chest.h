@@ -47,5 +47,6 @@ string chest()
         return "Enemy Encountered";
     }
     return "";
+    
 }
 #endif
