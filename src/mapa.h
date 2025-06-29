@@ -7,12 +7,6 @@
 #include <string>
 using namespace std;
 
-//codigo acsii para las flechas
-#define DERECHA 77
-#define IZQUIERDA 100
-#define ARRIBA 119
-#define ABAJO 115
-
 #define FIL 28
 #define COL 80
 #define ANCHO_TERMINAL 80
@@ -22,14 +16,15 @@ int mapa[FIL][COL];
 void imprimir_mapa();
 void copia_nivel1();
 void inicializar_mapa();
+void mover_personaje_wasd();
 
 void inicializar_mapa() {
     for (int i = 0; i < FIL; ++i) {
         for (int j = 0; j < COL; ++j) {
             if (i == 0 || i == FIL - 1 || j == 0 || j == COL - 1) {
-                mapa[i][j] = 1; // muro
+                mapa[i][j] = 1; 
             } else {
-                mapa[i][j] = 0; // espacio vacío
+                mapa[i][j] = 0; 
             }
         }
     }
@@ -79,10 +74,42 @@ void copia_nivel1() {
 {1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 {1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+
     };
     for (int i = 0; i < FIL; ++i)
         for (int j = 0; j < COL; ++j)
             mapa[i][j] = nivel1[i][j];
+}
+
+void mover_personaje_wasd() {
+int px = -1, py = -1;
+for (int i = 0; i < FIL; ++i) {
+    for (int j = 0; j < COL; ++j) {
+        if (mapa[i][j] == 2) {
+            px = i;
+            py = j;
+            break;
+        }
+    }
+    if (px != -1) break;
+}
+    imprimir_mapa();
+    while (true) {
+        char tecla = _getch();
+        int nx = px, ny = py;
+        if (tecla == 'w') nx--;
+        else if (tecla == 's') nx++;
+        else if (tecla == 'a') ny--;
+        else if (tecla == 'd') ny++;
+        else if (tecla == 'q') break; // salir con q
+        if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL && mapa[nx][ny] == 0) {
+            mapa[px][py] = 0;
+            px = nx; py = ny;
+            mapa[px][py] = 2;
+        }
+        system("cls");
+        imprimir_mapa();
+    }
 }
 
 
