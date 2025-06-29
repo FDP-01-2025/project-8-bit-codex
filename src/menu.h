@@ -1,26 +1,23 @@
 #ifndef menu_H
 #define menu_H
-
 #include "new.h"
 #include "load.h"
-#include "character.h"
+#include "entities/character.h"
 #include "loading.h"
 #include "imagen.h"
+#include "utils/Screen.h"
+#include "utils/inputs.h"
 #include <iostream>
 #include <conio.h>
-#include <windows.h>
-
-#define TECLA_ARRIBA 72
-#define TECLA_ABAJO 80
-#define ENTER 13
 using namespace std;
+
 void menu_new()
 {
     character player;
     string className;
     new_game(player, className);
 }
-void menu_load(int cla)
+void menu_load()
 {
     character player;
     string className;
@@ -28,13 +25,14 @@ void menu_load(int cla)
 }
 void menu_principal()
 {
+    hideCursor();
     int cas;
     int tecla;
     bool repite = true;
     int opcion = 1;
     do
     {
-        system("cls");
+        gotoxy(0, 0);
         cout << "\t\t\t\t========================================================\n";
         cout << "\t\t\t\t            _____ _____       _______ ____              \n";
         cout << "\t\t\t\t           |_   _/ _ \\ \\      / / ____|  _ \\         \n";
@@ -61,11 +59,15 @@ void menu_principal()
         switch (tecla)
         {
         case TECLA_ARRIBA:
+        case 'w':
+        case 'W':
             opcion--;
             if (opcion < 1)
                 opcion = 3;
             break;
         case TECLA_ABAJO:
+        case 's':
+        case 'S':
             opcion++;
             if (opcion > 3)
                 opcion = 1;
@@ -74,12 +76,14 @@ void menu_principal()
             switch (opcion)
             {
             case 1:
+                system("cls");
                 menu_new();
                 cas = 1;
                 repite = false;
                 break;
             case 2:
-                menu_load;
+                system("cls");
+                menu_load();
                 cas = 2;
                 repite = false;
                 break;

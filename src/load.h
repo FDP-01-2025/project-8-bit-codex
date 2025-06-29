@@ -2,14 +2,15 @@
 #define load_H
 #include <iostream>
 #include <fstream>
+#include "entities/character.h"
 using namespace std;
-#include "character.h"
 
-bool load_game(character &player, string &class_name)
+bool load_game(character &player, string &className)
 {
     ifstream archivo("save_tower.txt");
     if (archivo.is_open())
     {
+        archivo >> className;
         archivo >> player.hp;
         archivo >> player.def;
         archivo >> player.strength;
@@ -17,6 +18,7 @@ bool load_game(character &player, string &class_name)
         archivo >> player.intel;
         archivo >> player.luck;
         archivo >> player.object;
+        archivo >> player.level;
         archivo.close();
         cout << "successfully loaded game" << endl;
         system("pause");
