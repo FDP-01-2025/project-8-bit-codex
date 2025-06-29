@@ -1,7 +1,7 @@
-#include "mapa.h"
+#include "mapa2.h"
 
 int main() {
-    copia_nivel1();
+    copia_nivel2();
     mover_personaje_wasd();
     return 0;
 }
