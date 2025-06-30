@@ -10,23 +10,20 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
-
+character player;
+string className;
+int cas;
 void menu_new()
 {
-    character player;
-    string className;
     new_game(player, className);
 }
-void menu_load()
+bool menu_load()
 {
-    character player;
-    string className;
-    load_game(player, className);
+    return load_game(player, className);
 }
-void menu_principal()
+int menu_principal()
 {
     hideCursor();
-    int cas;
     int tecla;
     bool repite = true;
     int opcion = 1;
@@ -83,9 +80,15 @@ void menu_principal()
                 break;
             case 2:
                 system("cls");
-                menu_load();
-                cas = 2;
-                repite = false;
+                if (menu_load())
+                {
+                    cas = 2;
+                    repite = false;
+                }
+                else
+                {
+                    repite = true;
+                }
                 break;
             case 3:
                 cas = 3;
@@ -120,5 +123,6 @@ void menu_principal()
     else if (cas == 3)
     {
     }
+    return cas;
 }
 #endif

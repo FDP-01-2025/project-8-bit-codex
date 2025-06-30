@@ -67,7 +67,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_assasin();
                 repite = false;
@@ -92,7 +92,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_mage();
                 repite = false;
@@ -117,7 +117,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_knight();
                 repite = false;
@@ -142,7 +142,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_berserk();
                 repite = false;
