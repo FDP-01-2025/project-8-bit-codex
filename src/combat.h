@@ -9,6 +9,7 @@
 #include "entities/enemies.h"
 #include "utils/screen.h"
 #include "inventory.h"
+#include "critical.h"
 
 using namespace std;
 
@@ -80,14 +81,29 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                 switch (option) {
                     case 1: { // Atacar
                         system("cls");
-                        int damage = calculatePlayerDamage(player);
-                        if (enemy.hp - damage <= 0) {
+                        int baseDamage = calculatePlayerDamage(player);
+                        
+                        // Calcular si hay crítico y el daño final
+                        CriticalInfo critInfo = calculateCriticalDamage(player, baseDamage);
+                        
+                        // Mostrar mensaje de crítico si aplica
+                        if (critInfo.isCritical) {
+                            displayCriticalMessage(player);
+                            Sleep(800);
+                        }
+                        
+                        if (enemy.hp - critInfo.damage <= 0) {
                             enemy.hp = 0;
                             cout << "\t\t\t\tEnemy defeated!\n";
                             Sleep(1000);
                         } else {
-                            enemy.hp -= damage;
-                            cout << "\t\t\t\tYou hit the enemy for " << damage << " damage.\n";
+                            enemy.hp -= critInfo.damage;
+                            if (critInfo.isCritical) {
+                                cout << "\t\t\t\tCritical hit! You dealt " << critInfo.damage 
+                                     << " damage (x" << critInfo.multiplier << ")!\n";
+                            } else {
+                                cout << "\t\t\t\tYou hit the enemy for " << critInfo.damage << " damage.\n";
+                            }
                             Sleep(1000);
                         }
                         repite = false;
