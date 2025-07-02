@@ -1,5 +1,5 @@
-#ifndef mapa2_H
-#define mapa2_H
+#ifndef mapa3_H
+#define mapa3_H
 
 #include <iostream>
 #include <conio.h>
