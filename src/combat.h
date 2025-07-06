@@ -10,6 +10,7 @@
 #include "utils/screen.h"
 #include "inventory.h"
 #include "critical.h"
+#include "gameOver.h"
 
 using namespace std;
 
@@ -191,7 +192,7 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
 }
 
 // Sistema principal de combate.
-void combatSystem(character &player, enemies enemy) {//cambie el enemies &enemy a enmies enemy para probar
+void combatSystem(character &player, enemies enemy, const string &className) {//cambie el enemies &enemy a enmies enemy para probar
     srand(time(0));
     PlayerState state;
     int turnCounter = 0;
@@ -209,12 +210,9 @@ void combatSystem(character &player, enemies enemy) {//cambie el enemies &enemy 
     system("cls");
 
     if (player.hp <= 0) {
-        cout << "\t\t\t\tGAME OVER\n"; //Mensaje por si el jugador pierde por manco.
-        //Aun por mejorar.
-        cout << "\t\t\t\tPress any key to return to main menu...\n";
-        /*Falta agregar funcion para volver al menu principal o volver a cargar desde 
-        la ultima vez que se guardo*/
-        getch();
+        /*Funcion para volver al menu principal o cargar el ultimo punto de guardado
+        por si el jugador muere*/
+        gameOverMenu(player, className);
     } else {
         cout << "\t\t\t\tPREY SLAUGHTERED\n"; //Mensaje por si el personaje gana.
         cout << "\t\t\t\tYou gained 1 level!\n"; //Informa al jugador que gano un nivel
