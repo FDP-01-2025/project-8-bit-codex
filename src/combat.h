@@ -198,7 +198,7 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
 }
 
 // Sistema principal de combate.
-void combatSystem(character &player, enemies &enemy) {
+void combatSystem(character &player, enemies enemy) {//cambie el enemies &enemy a enmies enemy para probar
     srand(time(0));
     PlayerState state;
     int turnCounter = 0;
