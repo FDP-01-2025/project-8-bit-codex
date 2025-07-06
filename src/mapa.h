@@ -10,6 +10,7 @@
 #include "combat.h"
 #include "new.h"
 #include "entities/character.h"
+#include "Inventory.h"
 using namespace std;
 
 #define FIL 28
@@ -145,6 +146,7 @@ for (int i = 0; i < FIL; ++i) {
     } else if (celda == chests) {
         cout << "\n¡Has encontrado un COFRE! \n";
         chest(); // Llama la función del cofre
+        addToInventory(chest());
         sleep(2);
         mapa[nx][ny] = 0; // Quita el cofre
         mapa[px][py] = 0;
@@ -153,6 +155,7 @@ for (int i = 0; i < FIL; ++i) {
 
     } else if (celda == boss) {
         cout << "\n¡Te enfrentas al JEFE FINAL! \n";
+        combatSystem(player, Spider);
         sleep(2);
         
     }

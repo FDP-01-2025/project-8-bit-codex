@@ -183,13 +183,11 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     }
 
     // Ataque normal
-    if (tryEvade(player.luck)) {
-        cout << "\t\t\t\tYou dodged the attack!\n";
-    } else {
-        int damage = max(0, enemy.strength - (player.def / 2));
+   
+        int damage = max(20, enemy.strength - (player.def / 2));
         player.hp -= damage;
         cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
-    }
+    
 
     Sleep(1000);
 }
