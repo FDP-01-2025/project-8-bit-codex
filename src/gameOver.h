@@ -30,7 +30,7 @@ void returnToMainMenu() {
 }
 
 // Función para mostrar opciones de Game Over
-void gameOverMenu(character &player, const string &className) {
+void gameOverMenu(character &player, string &className) {
     system("cls");
     hideCursor();
     int tecla;
