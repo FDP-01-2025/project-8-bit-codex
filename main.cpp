@@ -4,8 +4,9 @@
 #include "src/Inventory.h"
 
 using namespace std;
-string inventory[MAX_ITEMS];
 int itemCount = 0;
+string inventory[MAX_ITEMS];
+
 
 int main()
 {

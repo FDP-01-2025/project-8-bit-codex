@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <unistd.h>
 #include <string>
+#include "utils/inputs.h"
 #include "entities/enemies.h"
 #include "chest.h"
 #include "combat.h"
@@ -111,10 +112,10 @@ for (int i = 0; i < FIL; ++i) {
     while (true) {
         char tecla = _getch();
         int nx = px, ny = py;
-        if (tecla == 'w') nx--;
-        else if (tecla == 's') nx++;
-        else if (tecla == 'a') ny--;
-        else if (tecla == 'd') ny++;
+        if (tecla == 'w' || tecla == TECLA_ARRIBA) nx--;
+        else if (tecla == 's' || tecla == TECLA_ABAJO) nx++;
+        else if (tecla == 'a' || tecla == TECLA_IZQUIERDA) ny--;
+        else if (tecla == 'd' || tecla == TECLA_DERECHA) ny++;
         else if (tecla == 'q') break; // salir con q
         if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL) {
     int celda = mapa[nx][ny];

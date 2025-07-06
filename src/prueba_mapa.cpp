@@ -6,6 +6,7 @@
 #include "mapa.h"
 #include "new.h"
 #include "utils/Screen.h"
+#include "utils/inputs.h"
 int itemCount = 0;
 string inventory[MAX_ITEMS];
 int main() {
