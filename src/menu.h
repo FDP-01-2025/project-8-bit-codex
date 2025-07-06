@@ -13,7 +13,7 @@ using namespace std;
 character player;
 string className;
 int cas;
-void menu_new()
+void menu_new(character &player, string &className)
 {
     new_game(player, className);
 }
@@ -74,7 +74,7 @@ int menu_principal()
             {
             case 1:
                 system("cls");
-                menu_new();
+                menu_new(player, className);
                 cas = 1;
                 repite = false;
                 break;

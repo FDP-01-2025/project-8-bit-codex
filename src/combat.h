@@ -152,9 +152,6 @@ void enemyTurn(character &player, enemies &enemy, PlayerState &state) {
 
     cout << "\t\t\t\tEnemy's Turn...\n";
 
-  // Variable estática para evitar que el enemigo evada dos turnos seguidos
-static bool lastEnemyEvaded = false;
-
 // Si no evadió en el último turno, y hay suerte, puede evadir ahora
 if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     cout << "\t\t\t\tThe enemy evades your previous attack!\n";

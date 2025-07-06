@@ -1,9 +1,18 @@
+
+#include <iostream>
+#include <windows.h>
+#include "menu.h"
+#include "Inventory.h"
 #include "mapa.h"
+#include "new.h"
 #include "utils/Screen.h"
+int itemCount = 0;
+string inventory[MAX_ITEMS];
 int main() {
-    gotoxy(-1,-1);
+    character player;
+    gotoxy(0,0);
     hideCursor();
     copia_nivel1();         
-    mover_personaje_wasd(); 
+    mover_personaje_wasd(player); 
     return 0;
 }

@@ -24,7 +24,7 @@ using namespace std;
 #define boss 6
 
 int mapa[FIL][COL];
-
+extern character player;
 void imprimir_mapa();
 void copia_nivel1();
 void inicializar_mapa();
@@ -93,7 +93,7 @@ void copia_nivel1() {
             mapa[i][j] = nivel1[i][j];
 }
 
-void mover_personaje_wasd() {
+void mover_personaje_wasd(character &player) {
 int px = -1, py = -1;
 for (int i = 0; i < FIL; ++i) {
     for (int j = 0; j < COL; ++j) {
@@ -158,7 +158,8 @@ for (int i = 0; i < FIL; ++i) {
     }
 }
 
-        system("cls");
+        Sleep(0);
+        system ("cls");
         imprimir_mapa();
     }
 }

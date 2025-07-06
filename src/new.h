@@ -3,6 +3,7 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include <string>
 #include "entities/character.h"
 #include "imagen.h"
 #include "menu.h"
@@ -10,6 +11,8 @@
 #include "utils/Screen.h"
 #include "utils/inputs.h"
 using namespace std;
+void new_game(character &player, string &className);
+
 void new_game(character &player, string &className)
 {
     hideCursor();
