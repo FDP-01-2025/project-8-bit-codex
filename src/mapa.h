@@ -112,11 +112,33 @@ for (int i = 0; i < FIL; ++i) {
     while (true) {
         char tecla = _getch();
         int nx = px, ny = py;
-        if (tecla == 'w' || tecla == TECLA_ARRIBA) nx--;
-        else if (tecla == 's' || tecla == TECLA_ABAJO) nx++;
-        else if (tecla == 'a' || tecla == TECLA_IZQUIERDA) ny--;
-        else if (tecla == 'd' || tecla == TECLA_DERECHA) ny++;
-        else if (tecla == 'q') break; // salir con q
+       switch (tecla)
+        {
+        case 'w':
+        case 'W':
+        case TECLA_ARRIBA:
+        nx--;
+        break;
+        case 's':
+        case 'S':
+        case TECLA_ABAJO:
+        nx++;
+        break;
+        case 'a':
+        case 'A':
+        case TECLA_IZQUIERDA:
+        ny--;
+        break;
+        case 'd':
+        case 'D':
+        case TECLA_DERECHA:
+        ny++;
+        break;
+        case 'q':
+        case 'Q':
+        case ESC:
+        break;
+        }
         if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL) {
     int celda = mapa[nx][ny];
 
@@ -146,8 +168,11 @@ for (int i = 0; i < FIL; ++i) {
 
     } else if (celda == chests) {
         cout << "\n¡Has encontrado un COFRE! \n";
-        chest(); // Llama la función del cofre
-        addToInventory(chest());
+        string objeto = chest();
+            if (objeto != "Enemy Encountered" && objeto != "Empty Chest" && !objeto.empty())
+            {
+                addToInventory(objeto);
+            }
         sleep(2);
         mapa[nx][ny] = 0; // Quita el cofre
         mapa[px][py] = 0;

@@ -184,12 +184,9 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     }
 
     // Ataque normal
-   
-        int damage = max(20, enemy.strength - (player.def / 2));
-        player.hp -= damage;
-        cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
-    
-
+    int damage = max(20, enemy.strength - (player.def / 2));
+    player.hp -= damage;
+    cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
     Sleep(1000);
 }
 
