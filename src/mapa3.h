@@ -151,7 +151,7 @@ for (int i = 0; i < FIL; ++i) {
     } else if (celda == zombies) {
         cout << "\n¡Te encontraste con un ZOMBI! \n";
         sleep(1); 
-        combatSystem(player, zombie);
+        combatSystem(player, zombie, className);
         mapa[nx][ny] = 0; // Elimina el zombi
         mapa[px][py] = 0;
         px = nx; py = ny;
@@ -160,7 +160,7 @@ for (int i = 0; i < FIL; ++i) {
     } else if (celda == eskeletons) {
         cout << "\n¡Un ESQUELETO bloquea tu camino! \n";
         sleep(1);
-        combatSystem(player, skeleton);
+        combatSystem(player, skeleton, className);
         mapa[nx][ny] = 0; // Elimina el esqueleto
         mapa[px][py] = 0;
         px = nx; py = ny;
@@ -181,8 +181,12 @@ for (int i = 0; i < FIL; ++i) {
 
     } else if (celda == boss) {
         cout << "\n¡Te enfrentas al JEFE FINAL! \n";
-        combatSystem(player, Dark_knight);
+        combatSystem(player, Dark_knight, className);
         sleep(2);
+        mapa[nx][ny] = 0; // Quita el jefe
+        mapa[px][py] = 0;
+        px = nx; py = ny;
+        mapa[px][py] = characters;
         
     }
 }
