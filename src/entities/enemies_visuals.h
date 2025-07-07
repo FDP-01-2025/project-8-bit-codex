@@ -6,7 +6,8 @@
 
 // Estructura que combinara datos del enemigo + su imagen ASCII
 struct enemyVisuals {
-    enemies data;         // Datos del enemigo (hp, strength)
+    enemies data;
+        // Datos del enemigo (hp, strength)
     const char* image;      // Puntero a la imagen ASCII, por asi decirlo una forma de concatenar
 };
 

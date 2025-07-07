@@ -6,8 +6,8 @@
 #include <ctime>
 #include <string>
 #include <cstdlib> 
-#include "entities/character.h"
-#include "entities/enemies.h"
+#include "entities/character.h" //cambie por la nueva biblioteca "character_visuals.h", caso de error borrar "_visuals".
+#include "entities/enemies.h" //cambie por la nueva biblioteca "enemies_visuals.h", caso de error borrar "_visuals".
 #include "utils/screen.h"
 #include "inventory.h"
 #include "critical.h"
@@ -48,8 +48,9 @@ bool enemyTryEvade() {
     return chance < 15; // 15% de probabilidad fija para evadir, no mas de dos veces seguidas para que no sea injusto.
 }
 
-// Turno del jugador
+// Inicia turno del jugador
 void playerTurn(character &player, enemies &enemy, PlayerState &state) {
+//void playerTurn(character &player, enemies &enemy, PlayerState &state) cambiar por anterior en caso de error.
     system("cls");
     hideCursor();
     int tecla;
@@ -94,7 +95,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                             displayCriticalMessage(player);
                             Sleep(800);
                         }
-                        
+                        //eliminar "data" si presenta errores
                         if (enemy.hp - critInfo.damage <= 0) {
                             enemy.hp = 0;
                             cout << "\t\t\t\tEnemy defeated!\n";
@@ -151,6 +152,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
 
 // Turno del enemigo
 void enemyTurn(character &player, enemies &enemy, PlayerState &state) {
+//void enemyTurn(character &player, enemies &enemy, PlayerState &state) cambiar por anterior en caso de fallos
     system("cls");
     static bool lastEnemyEvaded = false;
 
@@ -195,11 +197,14 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
 }
 
 // Sistema principal de combate.
-void combatSystem(character &player, enemies enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
+void combatSystem(character &player,enemies &enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
+//void combatSystem(character &player, enemies enemy, string &className) pegar anterior en caso de error
+    
     srand(time(0));
     PlayerState state;
     int turnCounter = 0;
-    while (player.hp > 0 && enemy.hp > 0) {
+
+   while (player.hp > 0 && enemy.hp > 0) {
         turnCounter++;
 
         playerTurn(player, enemy, state);
@@ -208,10 +213,10 @@ void combatSystem(character &player, enemies enemy, string &className) {//cambie
         enemyTurn(player, enemy, state);
         if (player.hp <= 0) break;
     }
-
-        system("cls");
+    system("cls");
 
     if (player.hp <= 0) {
+
     //Mensaje por si el jugador pierde por manco.
 
     cout << "\t\t\t\tGAME OVER\n";
