@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <cstdlib> 
 #include "entities/character.h"
 #include "entities/enemies.h"
 #include "utils/screen.h"
@@ -200,16 +201,28 @@ void combatSystem(character &player, enemies &enemy) {
     system("cls");
 
     if (player.hp <= 0) {
-        cout << "\t\t\t\tGAME OVER\n"; //Mensaje por si el jugador pierde por manco.
-        //Aun por mejorar.
+    //Mensaje por si el jugador pierde por manco.
+
+cout << "    ____    _    __  __ _____    _____     _______ ____     " <<endl;
+cout << "   / ___|  / \  |  \/  | ____|  / _ \ \   / / ____|  _ \    " <<endl;
+cout << "  | |  _  / _ \ | |\/| |  _|   | | | \ \ / /|  _| | |_) |   " <<endl;
+cout << "  | |_| |/ ___ \| |  | | |___  | |_| |\ V / | |___|  _ <    " <<endl;
+cout << "   \____/_/   \_\_|  |_|_____|  \___/  \_/  |_____|_| \_\   " <<endl;
+    cout << " " << endl;
         cout << "\t\t\t\tPress any key to return to main menu...\n";
         /*Falta agregar funcion para volver al menu principal o volver a cargar desde 
         la ultima vez que se guardo*/
         getch();
     } else {
-        cout << "\t\t\t\tPREY SLAUGHTERED\n"; //Mensaje por si el personaje gana.
+    
+cout << " ____  ____  _______   __  ____  _        _   _   _  ____ _   _ _____ _____ ____  _____ ____    " << endl;  
+cout << "|  _ \|  _ \| ____\ \ / / / ___|| |      / \ | | | |/ ___| | | |_   _| ____|  _ \| ____|  _ \   " << endl; 
+cout << "| |_) | |_) |  _|  \ V /  \___ \| |     / _ \| | | | |  _| |_| | | | |  _| | |_) |  _| | | | |  " << endl;
+cout << "|  __/|  _ <| |___  | |    ___) | |___ / ___ \ |_| | |_| |  _  | | | | |___|  _ <| |___| |_| |  " << endl;
+cout << "|_|   |_| \_\_____| |_|   |____/|_____/_/   \_\___/ \____|_| |_| |_| |_____|_| \_\_____|____/   " << endl;
+        cout << " " << endl;
         cout << "\t\t\t\tYou gained 1 level!\n"; //Informa al jugador que gano un nivel
-        /*NOTA: mensajes solo de referencia, aun por mejorar*/
+        
         player.level++; //Nivel del jugador aumenta
         Sleep(2000);
     }
