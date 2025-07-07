@@ -63,6 +63,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
         cout << (option == 2 ? "\t\t\t\t==> Use Object\n" : "\t\t\t\t    Use Object\n");
         cout << (option == 3 ? "\t\t\t\t==> Block\n" : "\t\t\t\t    Block\n"          );
         cout << "\t\t\t\t========================================================\n"   ;
+        
 
         tecla = getch();//para ingresar datos en la consola sin presionar enter
 
@@ -189,6 +190,7 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     int damage = max(20, enemy.strength - (player.def / 2));
     player.hp -= damage;
     cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
+    
     Sleep(1000);
 }
 
@@ -197,7 +199,6 @@ void combatSystem(character &player, enemies enemy, string &className) {//cambie
     srand(time(0));
     PlayerState state;
     int turnCounter = 0;
-
     while (player.hp > 0 && enemy.hp > 0) {
         turnCounter++;
 
@@ -208,7 +209,7 @@ void combatSystem(character &player, enemies enemy, string &className) {//cambie
         if (player.hp <= 0) break;
     }
 
-    system("cls");
+        system("cls");
 
     if (player.hp <= 0) {
     //Mensaje por si el jugador pierde por manco.

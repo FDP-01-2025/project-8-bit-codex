@@ -53,7 +53,7 @@ void inicializar_mapa()
 }
 
 void imprimir_mapa()
-{
+{  
     int espacios = (ANCHO_TERMINAL - COL) / 2;
     for (int i = 0; i < FIL; ++i)
     {
@@ -260,6 +260,9 @@ void mover_personaje_wasd(character &player)
                 if (objeto != "Enemy Encountered" && objeto != "Empty Chest" && !objeto.empty())
                 {
                     addToInventory(objeto);
+                }
+                else if(objeto == "Enemy Encountered"){
+                    combatSystem(player, zombie, className);
                 }
                 sleep(2);
                 mapa[nx][ny] = 0; // Quita el cofre
