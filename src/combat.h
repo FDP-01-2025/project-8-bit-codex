@@ -115,7 +115,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                         break;
                     }
                     case 2: // Usar objeto
-                        Inventory(); // Abre el menú de inventario
+                        Inventory(player); // Abre el menú de inventario
                         system ("cls");
                         break;
                     case 3: // Accion de combate bloquear

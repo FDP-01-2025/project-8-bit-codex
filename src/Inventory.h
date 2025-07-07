@@ -12,7 +12,30 @@ using namespace std;
 const int MAX_ITEMS = 10;
 extern string inventory[MAX_ITEMS];
 extern int itemCount;
-void Inventory()
+void usarObjeto(const string &objeto, character &player)
+{
+    if (objeto == "Potion of Life")
+    {
+        player.hp += 20;
+        cout << "\t\t\t\tYou have cured 20 life points\n";
+    }
+    else if (objeto == "Defense Potion")
+    {
+        player.def += 5;
+        cout << "\t\t\t\tYour defense has increased by 5\n";
+    }
+    else if (objeto == "Potion of Strength")
+    {
+        player.strength += 5;
+        cout << "\t\t\t\tYour strength has increased by 5\n";
+    }
+    else
+    {
+        cout << "\t\t\t\tNothing happens...\n";
+    }
+    Sleep(1000);
+}
+void Inventory(character &player)
 {
     system("cls");
     hideCursor();
@@ -21,9 +44,9 @@ void Inventory()
     int opcion = 1;
     do
     {
-        gotoxy(0, 0);//Evita parpadeo
+        gotoxy(0, 0); // Evita parpadeo
         cout << "\t\t\t\t=====================Inventory==========================\n";
-        for (int i = 0; i < MAX_ITEMS; ++i) //Un invetario funcional con WASD y las flechas
+        for (int i = 0; i < MAX_ITEMS; ++i) // Un invetario funcional con WASD y las flechas
         {
             if (i < itemCount)
             {
@@ -39,7 +62,7 @@ void Inventory()
         cout << "\t\t\t\t==========================================================\n";
         tecla = getch();
 
-        switch (tecla) //Switch para un menu funcional con WASD y las flechas
+        switch (tecla) // Switch para un menu funcional con WASD y las flechas
         {
         case TECLA_ARRIBA:
         case 'w':
@@ -60,11 +83,12 @@ void Inventory()
             {
                 system("cls");
                 cout << "\n\t\t\t\tYou have selected: " << inventory[opcion - 1] << endl;
+                usarObjeto(inventory[opcion - 1], player); //Al usar un objeto se quita del inventario
                 for (int i = opcion - 1; i < itemCount - 1; ++i)
                 {
                     inventory[i] = inventory[i + 1];
                 }
-                inventory[itemCount - 1].clear();//Al usar un objeto se quita del inventario
+                inventory[itemCount - 1].clear(); // Al usar un objeto se quita del inventario
                 itemCount--;
                 Sleep(2000);
                 system("cls");
@@ -76,7 +100,7 @@ void Inventory()
         }
     } while (repite);
 }
-void addToInventory(const string &item)//El objeto se agrega al inventario
+void addToInventory(const string &item) // El objeto se agrega al inventario
 {
     if (item.empty())
         return;
@@ -90,26 +114,4 @@ void addToInventory(const string &item)//El objeto se agrega al inventario
         cout << "Full inventory!" << endl;
     }
 }
-void showInventory()//Se muestra el inventario
-{
-    cout << "\n--- Inventory ---\n";
-    for (int i = 0; i < itemCount; ++i)
-    {
-        cout << i + 1 << ". " << inventory[i] << endl;
-    }
-    cout << "------------------\n";
-}
-void chest_final()
-    {
-        for (int i = 0; i < 5; ++i)
-        {
-            string objeto = chest();
-            if (objeto != "Enemy Encountered" && objeto != "Empty Chest" && !objeto.empty())
-            {
-                addToInventory(objeto);
-            }
-            Sleep(1000);
-        }
-        Inventory();
-    }
 #endif
