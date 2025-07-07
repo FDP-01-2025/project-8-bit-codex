@@ -12,10 +12,10 @@ const enemies skeleton = {70, 1};
 const enemies zombie = {70, 1};
 
 //Boss
-const enemies Dragon = {350, 7};
-const enemies Mini_Dragon = {300, 6};
-const enemies Dark_knight = {250, 5};
-const enemies orc = {200, 4};
-const enemies Spider = {150, 3};
+const enemies Dragon = {800, 10};
+const enemies Mini_Dragon = {600, 8};
+const enemies Dark_knight = {450, 6};
+const enemies orc = {300, 5};
+const enemies Spider = {250, 3};
 
 #endif
