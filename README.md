@@ -2,7 +2,38 @@
 
 ## Descripción del Proyecto
 
-Tower of Souls es un juego de acción RPG por consola donde el jugador debe ascender la Torre de la almas, enfrentando enemigos y jefes en cada piso. El objetivo es llegar a la cima superando desafíos, recolectando objetos y mejorando habilidades. El juego utiliza estructuras de control como `if`, `switch`, y bucles `while` y `for` para crear una experiencia dinámica y desafiante. Cada piso presenta enemigos únicos y un jefe final, y el jugador puede encontrar objetos que le ayudarán en su aventura. El juego está desarrollado completamente en C++ y se ejecuta en la terminal, sin dependencias externas.
+Tower of Souls es un juego de acción RPG por consola donde el jugador debe ascender la Torre de la almas, enfrentando enemigos y jefes en cada piso. El objetivo es llegar a la cima superando desafíos y recolectando objetos. Cada piso presenta enemigos únicos y un jefe final, y el jugador puede encontrar objetos que le ayudarán en su aventura. El juego está desarrollado completamente en C++ y se ejecuta en la terminal, sin dependencias externas.
+
+## Mecánica Principal y Jugabilidad
+1. **Objetivo principal:** Supera los 5 niveles de la Torre 
+
+2. **Sistema de combate:** Combate por turno
+
+3. **Controles:** 
+- Mover personaje: WASD o  ↑ ↓ → ← 
+- Inventario: ESC o I
+- Aceptar: ENTER
+
+4. **Mapa:**
+- Z : Zombies
+- E : Esqueletos
+- B : Jefe de Piso 
+- X : Salida
+- $ : Cofres
+
+## Structura
+
+```
+8-Bit Codex/
+├── if, Else, Else-If (Verificar celdas de mapa)
+├── For (Imprimir el mapa)
+├── While, Dowhile (Bucle del juego)
+├── Switch (Menu interactivo)
+├── Functions (combatSystem)
+├── Arrays (Mapas)
+├── Structs (Struct character y enemies)
+└── Archivos (Save y Load)
+```
 
 ## Equipo
 
@@ -25,7 +56,7 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
 ## Requisitos Previos
 
 - Compilador de C++ (recomendado: g++ 6.3.0 MinGW)
-- Sistema operativo: Windows
+- Sistema operativo: Unicamente Windows
 
 ## Instrucciones de Ejecución
 
@@ -33,6 +64,7 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
    ```bash
    git clone https://github.com/FDP-01-2025/project-8-bit-codex.git
 2. Abre una terminal en la carpeta del proyecto.
+
 3. Ejecuta el siguiente comando:
    ```bash
    g++ -o main.cpp
