@@ -4,7 +4,7 @@
 #include <windows.h>
 using namespace std;
 
-void loading(){
+void loading(){  //Pantalla de carga 
     char x =219;
     cout <<"========================"<<endl;
     cout <<"Loading Please Wait     "<<endl;

@@ -21,7 +21,7 @@ int main()
 {
 
     system("cls");
-    int opcion = menu_principal();
+    int opcion = menu_principal(); //Un filtro para las opciones del menu
     if (opcion == 1 || opcion == 2)
     {
         // loop del juego

@@ -23,7 +23,7 @@ bool menu_load()
 }
 int menu_principal()
 {
-    hideCursor();
+    hideCursor();//Esconde el cursor al ejecutar
     int tecla;
     bool repite = true;
     int opcion = 1;
@@ -51,9 +51,9 @@ int menu_principal()
         cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Load Game\n";
         cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
 
-        tecla = getch();
+        tecla = getch(); //Windows detecta las teclas
 
-        switch (tecla)
+        switch (tecla) //Switch para un menu funcional con WASD y las flechas
         {
         case TECLA_ARRIBA:
         case 'w':

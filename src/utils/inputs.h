@@ -7,5 +7,5 @@
 #define TECLA_DERECHA 77
 #define ENTER 13
 #define ESC 27
-
+//Valores en ascci para WASD y flechas 
 #endif
