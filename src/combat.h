@@ -211,7 +211,6 @@ void combatSystem(character &player, enemies enemy, string &className) {//cambie
     system("cls");
 
     if (player.hp <= 0) {
-<<<<<<< HEAD
     //Mensaje por si el jugador pierde por manco.
 
 cout << "    ____    _    __  __ _____    _____     _______ ____     " <<endl;
@@ -224,11 +223,6 @@ cout << "   \____/_/   \_\_|  |_|_____|  \___/  \_/  |_____|_| \_\   " <<endl;
         /*Falta agregar funcion para volver al menu principal o volver a cargar desde 
         la ultima vez que se guardo*/
         getch();
-=======
-        /*Funcion para volver al menu principal o cargar el ultimo punto de guardado
-        por si el jugador muere*/
-        gameOverMenu(player, className);
->>>>>>> 8c2aa221dc2850a871f203ca30255235738a5542
     } else {
     
 cout << " ____  ____  _______   __  ____  _        _   _   _  ____ _   _ _____ _____ ____  _____ ____    " << endl;  
