@@ -9,7 +9,7 @@ using namespace std;
 
 void save(const character &player, const string &className)
 {
-    ofstream archivo("save_tower.txt");
+    ofstream archivo("save_tower.txt"); //Abre el archivo para guardar los datos del personaje
     if (archivo.is_open())
     {
         archivo << player.level << endl;

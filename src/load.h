@@ -8,7 +8,7 @@ using namespace std;
 
 bool load_game(character &player, string &className)
 {
-    ifstream archivo("save_tower.txt");
+    ifstream archivo("save_tower.txt"); //Abre el archivo para leer los datos del personaje
     if (archivo.is_open())
     {
         archivo >> player.level;

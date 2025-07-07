@@ -21,9 +21,9 @@ void Inventory()
     int opcion = 1;
     do
     {
-        gotoxy(0, 0);
+        gotoxy(0, 0);//Evita parpadeo
         cout << "\t\t\t\t=====================Inventory==========================\n";
-        for (int i = 0; i < MAX_ITEMS; ++i)
+        for (int i = 0; i < MAX_ITEMS; ++i) //Un invetario funcional con WASD y las flechas
         {
             if (i < itemCount)
             {
@@ -39,7 +39,7 @@ void Inventory()
         cout << "\t\t\t\t==========================================================\n";
         tecla = getch();
 
-        switch (tecla)
+        switch (tecla) //Switch para un menu funcional con WASD y las flechas
         {
         case TECLA_ARRIBA:
         case 'w':
@@ -64,7 +64,7 @@ void Inventory()
                 {
                     inventory[i] = inventory[i + 1];
                 }
-                inventory[itemCount - 1].clear();
+                inventory[itemCount - 1].clear();//Al usar un objeto se quita del inventario
                 itemCount--;
                 Sleep(2000);
                 system("cls");
@@ -76,7 +76,7 @@ void Inventory()
         }
     } while (repite);
 }
-void addToInventory(const string &item)
+void addToInventory(const string &item)//El objeto se agrega al inventario
 {
     if (item.empty())
         return;
@@ -90,7 +90,7 @@ void addToInventory(const string &item)
         cout << "Full inventory!" << endl;
     }
 }
-void showInventory()
+void showInventory()//Se muestra el inventario
 {
     cout << "\n--- Inventory ---\n";
     for (int i = 0; i < itemCount; ++i)

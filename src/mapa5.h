@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <unistd.h>
 #include <string>
+#include "loading.h"
+#include "image.h"
 #include "utils/inputs.h"
 #include "entities/enemies.h"
 #include "chest.h"
@@ -14,10 +16,12 @@
 #include "Inventory.h"
 using namespace std;
 
+//se define la altura y el ancho del mapa
 #define FIL 28
 #define COL 80
 #define ANCHO_TERMINAL 80
 
+//se define los tipos de celda del mapa
 #define wall 1
 #define characters 2
 #define zombies 3
@@ -50,8 +54,10 @@ void inicializar_mapa5()
     }
 }
 
+// Imprime el mapa en la consola
 void imprimir_mapa5()
 {
+    gotoxy(0, 0);
     int espacios = (ANCHO_TERMINAL - COL) / 2;
     for (int i = 0; i < FIL; ++i)
     {
@@ -122,6 +128,7 @@ void copia_nivel5()
             mapa5[i][j] = nivel5[i][j];
 }
 
+// Mueve al personaje en el mapa usando las teclas WASD o flechas
 void mover_personaje_wasd5(character &player)
 {
     int px = -1, py = -1;
@@ -176,9 +183,11 @@ void mover_personaje_wasd5(character &player)
             {
                 system("cls");
                 gotoxy(0, 0);
+                cout << "\t\t\t\t========================================================\n";
                 cout << (opcion == 1 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Inventory\n";
                 cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Save game\n";
                 cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
+                cout << "\t\t\t\t========================================================\n";
 
                 tecla = getch();
 
@@ -230,8 +239,12 @@ void mover_personaje_wasd5(character &player)
             }
             else if (celda == zombies)
             {
-                cout << "\n¡Te encontraste con un ZOMBI! \n";
-                sleep(1);
+                system("cls");
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t         You met a zombie        \n";
+                cout << "\t\t\t\t=================================\n";
+                image_zombie();
+                sleep(2);
                 combatSystem(player, zombie, className);
                 mapa5[nx][ny] = 0; // Elimina el zombi
                 mapa5[px][py] = 0;
@@ -241,8 +254,12 @@ void mover_personaje_wasd5(character &player)
             }
             else if (celda == eskeletons)
             {
-                cout << "\n¡Un ESQUELETO bloquea tu camino! \n";
-                sleep(1);
+                system("cls");
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t   A skeleton blocks your path   \n";
+                cout << "\t\t\t\t=================================\n";
+                image_eskeleton();
+                sleep(2);
                 combatSystem(player, skeleton, className);
                 mapa5[nx][ny] = 0; // Elimina el esqueleto
                 mapa5[px][py] = 0;
@@ -252,11 +269,15 @@ void mover_personaje_wasd5(character &player)
             }
             else if (celda == chests)
             {
-                cout << "\n¡Has encontrado un COFRE! \n";
+                cout << "\n  You have found a chest  \n";
                 string objeto = chest();
                 if (objeto != "Enemy Encountered" && objeto != "Empty Chest" && !objeto.empty())
                 {
                     addToInventory(objeto);
+                }
+                else if (objeto == "Enemy Encountered")
+                {
+                    combatSystem(player, zombie, className);
                 }
                 sleep(2);
                 mapa5[nx][ny] = 0; // Quita el cofre
@@ -267,10 +288,18 @@ void mover_personaje_wasd5(character &player)
             }
             else if (celda == boss)
             {
-                cout << "\n¡Te enfrentas al JEFE FINAL! \n";
+                // Encuentra al jefe final
+                system ("cls");
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t      You face the final boss    \n";
+                cout << "\t\t\t\t=================================\n";
+                image_dragon();
+                Sleep(3000);
                 combatSystem(player, Dragon, className);
-                sleep(2);
-                mapa5[nx][ny] = 0; // Quita el cofre
+                    cout << "\t\t\t\t=======================\n";
+                    cout << "\t\t\t\tThank you for playing! \n";
+                    cout << "\t\t\t\t=======================\n";
+                mapa5[nx][ny] = 0; // Quita el jefe
                 mapa5[px][py] = 0;
                 px = nx;
                 py = ny;
@@ -279,7 +308,6 @@ void mover_personaje_wasd5(character &player)
         }
 
         Sleep(0);
-        system("cls");
         imprimir_mapa5();
     }
 }

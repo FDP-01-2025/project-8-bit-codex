@@ -2,7 +2,7 @@
 #define character_H
 
 // structura para personajes
-struct character
+struct character//Stadisticas de un personaje base
 {
     int level;
     int hp;
@@ -14,7 +14,7 @@ struct character
     int object;
     int tower_level;
 };
-
+//Estadisticas de personajes con sus clases 
 const character assasin = {1, 10, 5, 5, 15, 5, 10, 1, 0};
 const character mage = {1, 8, 8, 3, 5, 20, 6, 3, 0};
 const character knight = {1, 15, 15, 10, 3, 3, 4, 2, 0};

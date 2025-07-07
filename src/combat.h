@@ -64,6 +64,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
         cout << (option == 2 ? "\t\t\t\t==> Use Object\n" : "\t\t\t\t    Use Object\n");
         cout << (option == 3 ? "\t\t\t\t==> Block\n" : "\t\t\t\t    Block\n"          );
         cout << "\t\t\t\t========================================================\n"   ;
+        
 
         tecla = getch();//para ingresar datos en la consola sin presionar enter
 
@@ -188,14 +189,15 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     }
 
     // Ataque normal
-    int damage = max(20, enemy.strength - (player.def / 2));
+    int damage = max(0, enemy.strength - (player.def / 2));
     player.hp -= damage;
     cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
+    
     Sleep(1000);
 }
 
 // Sistema principal de combate.
-void combatSystem(character &player,enemies &enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
+void combatSystem(character &player, enemies enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
 //void combatSystem(character &player, enemies enemy, string &className) pegar anterior en caso de error
     
     srand(time(0));
@@ -229,7 +231,13 @@ void combatSystem(character &player,enemies &enemy, string &className) {//cambie
         cout << " " << endl;
         cout << "\t\t\t\tYou gained 1 level!\n"; //Informa al jugador que gano un nivel
         
-        player.level++; //Nivel del jugador aumenta
+        player.level++;
+        player.hp+2;
+        player.def+2;
+        player.dex+2;
+        player.intel+2;
+        player.luck+2;
+        player.strength+2; //Nivel del jugador aumenta
         Sleep(2000);
     }
 }
