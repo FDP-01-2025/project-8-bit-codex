@@ -134,6 +134,7 @@ void copia_nivel3()
 // Mueve al personaje en el mapa usando las teclas WASD o flechas
 void mover_personaje_wasd3(character &player)
 {
+    player.tower_level++;
     int px = -1, py = -1;
     for (int i = 0; i < FIL; ++i)
     {

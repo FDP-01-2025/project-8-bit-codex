@@ -135,6 +135,7 @@ void copia_nivel1()
 // Mueve al personaje según las teclas WASD o flechas
 void mover_personaje_wasd(character &player)
 {
+    
     int px = -1, py = -1;
     for (int i = 0; i < FIL; ++i)
     {
