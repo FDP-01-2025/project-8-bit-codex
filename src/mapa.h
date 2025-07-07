@@ -187,11 +187,11 @@ void mover_personaje_wasd(character &player)
             {
                 system("cls");
                 gotoxy(0, 0);
-                cout << "\t\t\t\t========================================================\n";
+                cout << "\t\t\t\t================================================\n";
                 cout << (opcion == 1 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Inventory\n";
                 cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Save game\n";
                 cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
-                cout << "\t\t\t\t========================================================\n";
+                cout << "\t\t\t\t================================================\n";
 
                 tecla = getch();
 
@@ -215,7 +215,7 @@ void mover_personaje_wasd(character &player)
                     switch (opcion)
                     {
                     case 1:
-                        Inventory();
+                        Inventory(player);
                         break;
                     case 2:
                         save(player, className);
@@ -284,6 +284,7 @@ void mover_personaje_wasd(character &player)
                     combatSystem(player, zombie, className);
                 }
                 sleep(2);
+                system("cls");
                 mapa[nx][ny] = 0; // Quita el cofre
                 mapa[px][py] = 0;
                 px = nx;
