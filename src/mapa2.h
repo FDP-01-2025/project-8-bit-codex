@@ -17,10 +17,12 @@
 #include "mapa3.h"
 using namespace std;
 
+//se define la altura y el ancho del mapa
 #define FIL 28
 #define COL 80
 #define ANCHO_TERMINAL 80
 
+//se define los tipos de celda del mapa
 #define wall 1
 #define characters 2
 #define zombies 3
@@ -36,6 +38,7 @@ void copia_nivel2();
 void inicializar_mapa2();
 void mover_personaje_wasd2();
 
+// Inicializa el mapa con paredes y espacios vacíos
 void inicializar_mapa2()
 {
     for (int i = 0; i < FIL; ++i)
@@ -54,6 +57,7 @@ void inicializar_mapa2()
     }
 }
 
+// Imprime el mapa en la consola
 void imprimir_mapa2()
 {
     gotoxy(0, 0);

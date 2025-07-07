@@ -16,10 +16,12 @@
 #include "Inventory.h"
 using namespace std;
 
+//se define la altura y el ancho del mapa
 #define FIL 28
 #define COL 80
 #define ANCHO_TERMINAL 80
 
+//se define los tipos de celda del mapa
 #define wall 1
 #define characters 2
 #define zombies 3
@@ -52,6 +54,7 @@ void inicializar_mapa5()
     }
 }
 
+// Imprime el mapa en la consola
 void imprimir_mapa5()
 {
     gotoxy(0, 0);
@@ -125,6 +128,7 @@ void copia_nivel5()
             mapa5[i][j] = nivel5[i][j];
 }
 
+// Mueve al personaje en el mapa usando las teclas WASD o flechas
 void mover_personaje_wasd5(character &player)
 {
     int px = -1, py = -1;
@@ -284,6 +288,7 @@ void mover_personaje_wasd5(character &player)
             }
             else if (celda == boss)
             {
+                // Encuentra al jefe final
                 system ("cls");
                 cout << "\t\t\t\t=================================\n";
                 cout << "\t\t\t\t      You face the final boss    \n";
@@ -294,7 +299,7 @@ void mover_personaje_wasd5(character &player)
                     cout << "\t\t\t\t=======================\n";
                     cout << "\t\t\t\tThank you for playing! \n";
                     cout << "\t\t\t\t=======================\n";
-                mapa5[nx][ny] = 0; // Quita el cofre
+                mapa5[nx][ny] = 0; // Quita el jefe
                 mapa5[px][py] = 0;
                 px = nx;
                 py = ny;

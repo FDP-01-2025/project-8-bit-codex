@@ -17,10 +17,12 @@
 #include "mapa5.h"
 using namespace std;
 
+//se define la altura y el ancho del mapa
 #define FIL 28
 #define COL 80
 #define ANCHO_TERMINAL 80
 
+//se define los tipos de celda del mapa
 #define wall 1
 #define characters 2
 #define zombies 3
@@ -36,6 +38,7 @@ void copia_nivel4();
 void inicializar_mapa4();
 void mover_personaje_wasd4();
 
+// inicializa el mapa con paredes y espacios vacíos
 void inicializar_mapa4()
 {
     for (int i = 0; i < FIL; ++i)
@@ -54,6 +57,7 @@ void inicializar_mapa4()
     }
 }
 
+// Imprime el mapa en la consola
 void imprimir_mapa4()
 {
     gotoxy(0, 0);
@@ -130,6 +134,7 @@ void copia_nivel4()
             mapa4[i][j] = nivel4[i][j];
 }
 
+// Mueve al personaje en el mapa usando las teclas WASD o flechas
 void mover_personaje_wasd4(character &player)
 {
     int px = -1, py = -1;
@@ -304,6 +309,7 @@ void mover_personaje_wasd4(character &player)
             }
             else if (celda == exit)
             {
+                // El jugador pasa al siguiente nivel
                 cout << "\t\t\t\t=================================\n";
                 cout << "\t\t\t\t    You have found the exit      \n";
                 cout << "\t\t\t\t=================================\n";
