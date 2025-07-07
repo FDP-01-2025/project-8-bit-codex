@@ -81,7 +81,7 @@ void imprimir_mapa3()
             case boss:
                 cout << "B";
                 break;
-                case exit:
+            case exit:
                 cout << "X";
                 break;
             default:
@@ -170,9 +170,54 @@ void mover_personaje_wasd3(character &player)
         case TECLA_DERECHA:
             ny++;
             break;
-        case 'q':
-        case 'Q':
+        case 'i':
+        case 'I':
         case ESC:
+            int tecla;
+            bool repite = true;
+            int opcion = 1;
+            do
+            {
+                system("cls");
+                gotoxy(0, 0);
+                cout << (opcion == 1 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Inventory\n";
+                cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Save game\n";
+                cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
+
+                tecla = getch();
+
+                switch (tecla)
+                {
+                case TECLA_ARRIBA:
+                case 'w':
+                case 'W':
+                    opcion--;
+                    if (opcion < 1)
+                        opcion = 3;
+                    break;
+                case TECLA_ABAJO:
+                case 's':
+                case 'S':
+                    opcion++;
+                    if (opcion > 3)
+                        opcion = 1;
+                    break;
+                case ENTER:
+                    switch (opcion)
+                    {
+                    case 1:
+                        Inventory();
+                        break;
+                    case 2:
+                        save(player, className);
+                        break;
+                    case 3:
+                        repite = false;
+                        break;
+                    }
+                    break;
+                }
+            } while (repite);
             break;
         }
         if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL)
