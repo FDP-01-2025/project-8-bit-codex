@@ -64,6 +64,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
         cout << (option == 2 ? "\t\t\t\t==> Use Object\n" : "\t\t\t\t    Use Object\n");
         cout << (option == 3 ? "\t\t\t\t==> Block\n" : "\t\t\t\t    Block\n"          );
         cout << "\t\t\t\t========================================================\n"   ;
+        cout << enemy.strength;
         
 
         tecla = getch();//para ingresar datos en la consola sin presionar enter
@@ -189,7 +190,7 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     }
 
     // Ataque normal
-    int damage = max(0, enemy.strength - (player.def / 2));
+    int damage = max(20, enemy.strength - (player.def / 2));
     player.hp -= damage;
     cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
     
