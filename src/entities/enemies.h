@@ -8,14 +8,14 @@ struct enemies
 };
 
 //normal enemies
-const enemies skeleton = {100000, 1};
-const enemies zombie = {100000, 1};
+const enemies skeleton = {70, 1};
+const enemies zombie = {70, 1};
 
 //Boss
-const enemies Dragon = {1400000, 7};
-const enemies Mini_Dragon = {1300000, 6};
-const enemies Dark_knight = {1200000, 5};
-const enemies orc = {1100000, 4};
-const enemies Spider = {1000000, 3};
+const enemies Dragon = {350, 7};
+const enemies Mini_Dragon = {300, 6};
+const enemies Dark_knight = {250, 5};
+const enemies orc = {200, 4};
+const enemies Spider = {150, 3};
 
 #endif
