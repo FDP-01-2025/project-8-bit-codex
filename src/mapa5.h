@@ -271,6 +271,10 @@ void mover_personaje_wasd5(character &player)
                 {
                     addToInventory(objeto);
                 }
+                else if (objeto == "Enemy Encountered")
+                {
+                    combatSystem(player, zombie, className);
+                }
                 sleep(2);
                 mapa5[nx][ny] = 0; // Quita el cofre
                 mapa5[px][py] = 0;
@@ -287,6 +291,9 @@ void mover_personaje_wasd5(character &player)
                 image_dragon();
                 Sleep(3000);
                 combatSystem(player, Dragon, className);
+                    cout << "\t\t\t\t=======================\n";
+                    cout << "\t\t\t\tThank you for playing! \n";
+                    cout << "\t\t\t\t=======================\n";
                 mapa5[nx][ny] = 0; // Quita el cofre
                 mapa5[px][py] = 0;
                 px = nx;

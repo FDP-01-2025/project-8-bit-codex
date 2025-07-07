@@ -274,6 +274,10 @@ void mover_personaje_wasd2(character &player)
                 {
                     addToInventory(objeto);
                 }
+                else if (objeto == "Enemy Encountered")
+                {
+                    combatSystem(player, zombie, className);
+                }
                 sleep(2);
                 mapa2[nx][ny] = 0; // Quita el cofre
                 mapa2[px][py] = 0;
