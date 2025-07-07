@@ -197,7 +197,7 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
 }
 
 // Sistema principal de combate.
-void combatSystem(character &player,enemies &enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
+void combatSystem(character &player, enemies enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
 //void combatSystem(character &player, enemies enemy, string &className) pegar anterior en caso de error
     
     srand(time(0));

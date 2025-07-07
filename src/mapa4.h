@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <unistd.h>
 #include <string>
+#include "loading.h"
+#include "image.h"
 #include "utils/inputs.h"
 #include "entities/enemies.h"
 #include "chest.h"
@@ -181,9 +183,11 @@ void mover_personaje_wasd4(character &player)
             {
                 system("cls");
                 gotoxy(0, 0);
+                cout << "\t\t\t\t========================================================\n";
                 cout << (opcion == 1 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Inventory\n";
                 cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Save game\n";
                 cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
+                cout << "\t\t\t\t========================================================\n";
 
                 tecla = getch();
 
@@ -235,8 +239,12 @@ void mover_personaje_wasd4(character &player)
             }
             else if (celda == zombies)
             {
-                cout << "\n¡Te encontraste con un ZOMBI! \n";
-                sleep(1);
+                system("cls");
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t         You met a zombie        \n";
+                cout << "\t\t\t\t=================================\n";
+                image_zombie();
+                sleep(2);
                 combatSystem(player, zombie, className);
                 mapa4[nx][ny] = 0; // Elimina el zombi
                 mapa4[px][py] = 0;
@@ -246,8 +254,12 @@ void mover_personaje_wasd4(character &player)
             }
             else if (celda == eskeletons)
             {
-                cout << "\n¡Un ESQUELETO bloquea tu camino! \n";
-                sleep(1);
+                system("cls");
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t   A skeleton blocks your path   \n";
+                cout << "\t\t\t\t=================================\n";
+                image_eskeleton();
+                sleep(2);
                 combatSystem(player, skeleton, className);
                 mapa4[nx][ny] = 0; // Elimina el esqueleto
                 mapa4[px][py] = 0;
@@ -257,7 +269,7 @@ void mover_personaje_wasd4(character &player)
             }
             else if (celda == chests)
             {
-                cout << "\n¡Has encontrado un COFRE! \n";
+                cout << "\n  You have found a chest  \n";
                 string objeto = chest();
                 if (objeto != "Enemy Encountered" && objeto != "Empty Chest" && !objeto.empty())
                 {
@@ -272,9 +284,13 @@ void mover_personaje_wasd4(character &player)
             }
             else if (celda == boss)
             {
-                cout << "\n¡Te enfrentas al JEFE FINAL! \n";
+                system ("cls");
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t      You face the final boss    \n";
+                cout << "\t\t\t\t=================================\n";
+                image_young_dragon();
+                Sleep(3000);
                 combatSystem(player, Mini_Dragon, className);
-                sleep(2);
                 mapa4[nx][ny] = 0; // Quita el jefe
                 mapa4[px][py] = 0;
                 px = nx;
@@ -283,12 +299,15 @@ void mover_personaje_wasd4(character &player)
             }
             else if (celda == exit)
             {
-                cout << "\n¡Has encontrado la SALIDA! \n";
+                cout << "\t\t\t\t=================================\n";
+                cout << "\t\t\t\t    You have found the exit      \n";
+                cout << "\t\t\t\t=================================\n";
+                loading();
+                sleep(1);
                 system("cls");
                 sleep(1);
                 inicializar_mapa5();
                 copia_nivel5();
-                imprimir_mapa5();
                 mover_personaje_wasd5(player);
                 return;
             }
