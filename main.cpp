@@ -19,27 +19,23 @@ using namespace std;
 int itemCount = 0;
 string inventory[MAX_ITEMS];
 
-
 int main()
 {
 
     system("cls");
-    int opcion = menu_principal(); //Un filtro para las opciones del menu
-    if (opcion == 1 )
+    int opcion = menu_principal(); // Un filtro para las opciones del menu
+    if (opcion == 1)
     {
         // loop del juego
-        int itemCount = 0;
-        string inventory[MAX_ITEMS];
-
         gotoxy(0, 0);
         hideCursor();
         copia_nivel1();
         mover_personaje_wasd(player);
         return 0;
     }
-    else if(opcion == 2){
+    else if (opcion == 2)
+    {
         load();
-    
     }
     cout << "\t\t\t\t=======================\n";
     cout << "\t\t\t\tThank you for playing! \n";
