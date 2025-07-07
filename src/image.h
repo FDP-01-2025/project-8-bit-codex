@@ -30,7 +30,6 @@ cout << "\t\t\t\t           @@@@@@@@@@@@@@@@@@@@@@@@@@               " << endl;
 cout << "\t\t\t\t                   @@@@@@@@@@@@@@@@@@@              " << endl;
 cout << "\t\t\t\t                           @@@@@@@@@@@@             " << endl;
 cout << "\t\t\t\t                                 @@@@@@             " << endl;
-cout << "\t\t\t\t                                    @@@             " << endl;
 
 }
 void image_assasin()
