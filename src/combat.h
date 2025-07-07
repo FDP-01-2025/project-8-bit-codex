@@ -232,12 +232,12 @@ void combatSystem(character &player, enemies enemy, string &className) {//cambie
         cout << "\t\t\t\tYou gained 1 level!\n"; //Informa al jugador que gano un nivel
         
         player.level++;
-        player.hp+2;
-        player.def+2;
-        player.dex+2;
-        player.intel+2;
-        player.luck+2;
-        player.strength+2; //Nivel del jugador aumenta
+        player.hp++;
+        player.def++;
+        player.dex++;
+        player.intel++;
+        player.luck++;
+        player.strength++; //Nivel del jugador aumenta
         Sleep(2000);
     }
 }

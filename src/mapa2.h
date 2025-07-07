@@ -134,6 +134,7 @@ void copia_nivel2()
 
 void mover_personaje_wasd2(character &player)
 {
+    player.tower_level++;
     int px = -1, py = -1;
     for (int i = 0; i < FIL; ++i)
     {

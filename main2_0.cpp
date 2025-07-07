@@ -1,31 +1,42 @@
-#ifndef load_H
-#define load_H
 #include <iostream>
-#include <fstream>
 #include <windows.h>
-#include "entities/character.h"
-using namespace std;
+#include <fstream>
+#include "src/menu.h"
+#include "src/Inventory.h"
+#include "src/mapa.h"
+#include "src/mapa2.h"
+#include "src/mapa3.h"
+#include "src/mapa4.h"
+#include "src/mapa5.h"
+#include "src/new.h"
+#include "src/utils/Screen.h"
+#include "src/utils/inputs.h"
+#include "src/entities/character.h"
+#include "src/combat.h"
 
-bool load_game(character &player, string &className)
+using namespace std;
+int itemCount = 0;
+string inventory[MAX_ITEMS];
+
+
+int main()
 {
-    ifstream archivo("save_tower.txt"); //Abre el archivo para leer los datos del personaje
-    if (archivo.is_open())
+
+    system("cls");
+    int opcion = menu_principal(); //Un filtro para las opciones del menu
+    if (opcion == 1 )
     {
-        archivo >> player.level;
-        archivo >> className;
-        archivo >> player.hp;
-        archivo >> player.def;
-        archivo >> player.strength;
-        archivo >> player.dex;
-        archivo >> player.intel;
-        archivo >> player.luck;
-        archivo >> player.object;
-        archivo >> player.tower_level;
-        archivo.close();
-        cout << "\t\t\t\t========================\n";
-        cout << "\t\t\t\tsuccessfully loaded game\n";
-        cout << "\t\t\t\t========================\n";
-        Sleep(1000);
+        // loop del juego
+        int itemCount = 0;
+        string inventory[MAX_ITEMS];
+
+        gotoxy(0, 0);
+        hideCursor();
+        copia_nivel1();
+        mover_personaje_wasd(player);
+        return 0;
+    }
+    else if(opcion == 2){
         // loop del juego
         int itemCount = 0;
         string inventory[MAX_ITEMS];
@@ -59,15 +70,12 @@ bool load_game(character &player, string &className)
             copia_nivel5();
             mover_personaje_wasd5(player);
         }
-        return true;
+        
+        
+
     }
-    else
-    {
-        cout << "\t\t\t\t============================\n";
-        cout << "\t\t\t\tthe game could not be loaded\n";
-        cout << "\t\t\t\t============================\n";
-        Sleep(1000);
-        return false;
-    }
+    cout << "\t\t\t\t=======================\n";
+    cout << "\t\t\t\tThank you for playing! \n";
+    cout << "\t\t\t\t=======================\n";
+    Sleep(1000);
 }
-#endif
