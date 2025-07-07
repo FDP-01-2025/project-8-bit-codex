@@ -17,27 +17,25 @@ using namespace std;
 int itemCount = 0;
 string inventory[MAX_ITEMS];
 
-
 int main()
 {
-    
+
     system("cls");
     int opcion = menu_principal();
-    if (opcion == 1 || opcion == 2) {
-        //loop del juego
+    if (opcion == 1 || opcion == 2)
+    {
+        // loop del juego
         int itemCount = 0;
-    string inventory[MAX_ITEMS];
-    
-    character player;
-    gotoxy(0,0);
-    hideCursor();
-    copia_nivel1();         
-    mover_personaje_wasd(player); 
-    return 0;
+        string inventory[MAX_ITEMS];
+
+        gotoxy(0, 0);
+        hideCursor();
+        copia_nivel1();
+        mover_personaje_wasd(player);
+        return 0;
     }
     cout << "\t\t\t\t=======================\n";
     cout << "\t\t\t\tThank you for playing! \n";
     cout << "\t\t\t\t=======================\n";
     Sleep(1000);
-    
 }
