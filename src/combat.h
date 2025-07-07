@@ -10,6 +10,8 @@
 #include "entities/enemies.h"
 #include "utils/screen.h"
 #include "inventory.h"
+#include "critical.h"
+#include "gameOver.h"
 
 using namespace std;
 
@@ -81,14 +83,29 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                 switch (option) {
                     case 1: { // Atacar
                         system("cls");
-                        int damage = calculatePlayerDamage(player);
-                        if (enemy.hp - damage <= 0) {
+                        int baseDamage = calculatePlayerDamage(player);
+                        
+                        // Calcular si hay crítico y el daño final
+                        CriticalInfo critInfo = calculateCriticalDamage(player, baseDamage);
+                        
+                        // Mostrar mensaje de crítico si aplica
+                        if (critInfo.isCritical) {
+                            displayCriticalMessage(player);
+                            Sleep(800);
+                        }
+                        
+                        if (enemy.hp - critInfo.damage <= 0) {
                             enemy.hp = 0;
                             cout << "\t\t\t\tEnemy defeated!\n";
                             Sleep(1000);
                         } else {
-                            enemy.hp -= damage;
-                            cout << "\t\t\t\tYou hit the enemy for " << damage << " damage.\n";
+                            enemy.hp -= critInfo.damage;
+                            if (critInfo.isCritical) {
+                                cout << "\t\t\t\tCritical hit! You dealt " << critInfo.damage 
+                                     << " damage (x" << critInfo.multiplier << ")!\n";
+                            } else {
+                                cout << "\t\t\t\tYou hit the enemy for " << critInfo.damage << " damage.\n";
+                            }
                             Sleep(1000);
                         }
                         repite = false;
@@ -96,6 +113,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                     }
                     case 2: // Usar objeto
                         Inventory(); // Abre el menú de inventario
+                        system ("cls");
                         break;
                     case 3: // Accion de combate bloquear
                         if (state.blockUses > 0) {
@@ -137,9 +155,6 @@ void enemyTurn(character &player, enemies &enemy, PlayerState &state) {
 
     cout << "\t\t\t\tEnemy's Turn...\n";
 
-  // Variable estática para evitar que el enemigo evada dos turnos seguidos
-static bool lastEnemyEvaded = false;
-
 // Si no evadió en el último turno, y hay suerte, puede evadir ahora
 if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     cout << "\t\t\t\tThe enemy evades your previous attack!\n";
@@ -171,19 +186,14 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
     }
 
     // Ataque normal
-    if (tryEvade(player.luck)) {
-        cout << "\t\t\t\tYou dodged the attack!\n";
-    } else {
-        int damage = max(0, enemy.strength - (player.def / 2));
-        player.hp -= damage;
-        cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
-    }
-
+    int damage = max(20, enemy.strength - (player.def / 2));
+    player.hp -= damage;
+    cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
     Sleep(1000);
 }
 
 // Sistema principal de combate.
-void combatSystem(character &player, enemies &enemy) {
+void combatSystem(character &player, enemies enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
     srand(time(0));
     PlayerState state;
     int turnCounter = 0;
@@ -201,6 +211,7 @@ void combatSystem(character &player, enemies &enemy) {
     system("cls");
 
     if (player.hp <= 0) {
+<<<<<<< HEAD
     //Mensaje por si el jugador pierde por manco.
 
 cout << "    ____    _    __  __ _____    _____     _______ ____     " <<endl;
@@ -213,6 +224,11 @@ cout << "   \____/_/   \_\_|  |_|_____|  \___/  \_/  |_____|_| \_\   " <<endl;
         /*Falta agregar funcion para volver al menu principal o volver a cargar desde 
         la ultima vez que se guardo*/
         getch();
+=======
+        /*Funcion para volver al menu principal o cargar el ultimo punto de guardado
+        por si el jugador muere*/
+        gameOverMenu(player, className);
+>>>>>>> 8c2aa221dc2850a871f203ca30255235738a5542
     } else {
     
 cout << " ____  ____  _______   __  ____  _        _   _   _  ____ _   _ _____ _____ ____  _____ ____    " << endl;  

@@ -60,6 +60,12 @@ void Inventory()
             {
                 system("cls");
                 cout << "\n\t\t\t\tYou have selected: " << inventory[opcion - 1] << endl;
+                for (int i = opcion - 1; i < itemCount - 1; ++i)
+                {
+                    inventory[i] = inventory[i + 1];
+                }
+                inventory[itemCount - 1].clear();
+                itemCount--;
                 Sleep(2000);
                 system("cls");
             }

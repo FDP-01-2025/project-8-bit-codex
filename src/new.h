@@ -3,6 +3,7 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include <string>
 #include "entities/character.h"
 #include "imagen.h"
 #include "menu.h"
@@ -10,6 +11,8 @@
 #include "utils/Screen.h"
 #include "utils/inputs.h"
 using namespace std;
+void new_game(character &player, string &className);
+
 void new_game(character &player, string &className)
 {
     hideCursor();
@@ -67,7 +70,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_assasin();
                 repite = false;
@@ -92,7 +95,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_mage();
                 repite = false;
@@ -117,7 +120,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_knight();
                 repite = false;
@@ -142,7 +145,7 @@ void new_game(character &player, string &className)
                 } else {
                     addToInventory("Potion of Defense");
                 }
-                cout << "\t\t\t\tLevel tower: " <<player.level << endl;
+                cout << "\t\t\t\tLevel tower: " <<player.tower_level << endl;
                 cout << "\t\t\t\t======================================================" << endl;
                 image_berserk();
                 repite = false;

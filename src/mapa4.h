@@ -1,0 +1,258 @@
+#ifndef mapa4_H
+#define mapa4_H
+
+#include <iostream>
+#include <conio.h>
+#include <unistd.h>
+#include <string>
+#include "utils/inputs.h"
+#include "entities/enemies.h"
+#include "chest.h"
+#include "combat.h"
+#include "new.h"
+#include "entities/character.h"
+#include "Inventory.h"
+#include "mapa5.h"
+using namespace std;
+
+#define FIL 28
+#define COL 80
+#define ANCHO_TERMINAL 80
+
+#define wall 1
+#define characters 2
+#define zombies 3
+#define eskeletons 4
+#define chests 5
+#define boss 6
+#define exit 7
+
+int mapa4[FIL][COL];
+extern character player;
+void imprimir_mapa4();
+void copia_nivel4();
+void inicializar_mapa4();
+void mover_personaje_wasd4();
+
+void inicializar_mapa4()
+{
+    for (int i = 0; i < FIL; ++i)
+    {
+        for (int j = 0; j < COL; ++j)
+        {
+            if (i == 0 || i == FIL - 1 || j == 0 || j == COL - 1)
+            {
+                mapa4[i][j] = 1;
+            }
+            else
+            {
+                mapa4[i][j] = 0;
+            }
+        }
+    }
+}
+
+void imprimir_mapa4()
+{
+    int espacios = (ANCHO_TERMINAL - COL) / 2;
+    for (int i = 0; i < FIL; ++i)
+    {
+        for (int s = 0; s < espacios; ++s)
+            cout << " ";
+        for (int j = 0; j < COL; ++j)
+        {
+            switch (mapa4[i][j])
+            {
+            case wall:
+                cout << "#";
+                break;
+            case characters:
+                cout << "*";
+                break;
+            case zombies:
+                cout << "Z";
+                break;
+            case eskeletons:
+                cout << "E";
+                break;
+            case chests:
+                cout << "$";
+                break;
+            case boss:
+                cout << "B";
+                break;
+                case exit:
+                cout << "X";
+                break;
+            default:
+                cout << " ";
+                break;
+            }
+        }
+        cout << endl;
+    }
+}
+
+void copia_nivel4()
+{
+    int nivel4[FIL][COL] = {
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 3, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 4, 0, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 5, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 6, 7, 1},
+        {1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 5, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 5, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 0, 3, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 4, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 1, 1, 0, 4, 0, 1, 1, 1, 0, 3, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+
+    };
+    for (int i = 0; i < FIL; ++i)
+        for (int j = 0; j < COL; ++j)
+            mapa4[i][j] = nivel4[i][j];
+}
+
+void mover_personaje_wasd4(character &player)
+{
+    int px = -1, py = -1;
+    for (int i = 0; i < FIL; ++i)
+    {
+        for (int j = 0; j < COL; ++j)
+        {
+            if (mapa4[i][j] == 2)
+            {
+                px = i;
+                py = j;
+                break;
+            }
+        }
+        if (px != -1)
+            break;
+    }
+    imprimir_mapa4();
+    while (true)
+    {
+        char tecla = _getch();
+        int nx = px, ny = py;
+        switch (tecla)
+        {
+        case 'w':
+        case 'W':
+        case TECLA_ARRIBA:
+            nx--;
+            break;
+        case 's':
+        case 'S':
+        case TECLA_ABAJO:
+            nx++;
+            break;
+        case 'a':
+        case 'A':
+        case TECLA_IZQUIERDA:
+            ny--;
+            break;
+        case 'd':
+        case 'D':
+        case TECLA_DERECHA:
+            ny++;
+            break;
+        case 'q':
+        case 'Q':
+        case ESC:
+            break;
+        }
+        if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL)
+        {
+            int celda = mapa4[nx][ny];
+
+            if (celda == 0)
+            {
+                // Movimiento libre
+                mapa4[px][py] = 0;
+                px = nx;
+                py = ny;
+                mapa4[px][py] = characters;
+            }
+            else if (celda == zombies)
+            {
+                cout << "\n¡Te encontraste con un ZOMBI! \n";
+                sleep(1);
+                combatSystem(player, zombie, className);
+                mapa4[nx][ny] = 0; // Elimina el zombi
+                mapa4[px][py] = 0;
+                px = nx;
+                py = ny;
+                mapa4[px][py] = characters;
+            }
+            else if (celda == eskeletons)
+            {
+                cout << "\n¡Un ESQUELETO bloquea tu camino! \n";
+                sleep(1);
+                combatSystem(player, skeleton, className);
+                mapa4[nx][ny] = 0; // Elimina el esqueleto
+                mapa4[px][py] = 0;
+                px = nx;
+                py = ny;
+                mapa4[px][py] = characters;
+            }
+            else if (celda == chests)
+            {
+                cout << "\n¡Has encontrado un COFRE! \n";
+                string objeto = chest();
+                if (objeto != "Enemy Encountered" && objeto != "Empty Chest" && !objeto.empty())
+                {
+                    addToInventory(objeto);
+                }
+                sleep(2);
+                mapa4[nx][ny] = 0; // Quita el cofre
+                mapa4[px][py] = 0;
+                px = nx;
+                py = ny;
+                mapa4[px][py] = characters;
+            }
+            else if (celda == boss)
+            {
+                cout << "\n¡Te enfrentas al JEFE FINAL! \n";
+                combatSystem(player, Mini_Dragon, className);
+                sleep(2);
+                mapa4[nx][ny] = 0; // Quita el jefe
+                mapa4[px][py] = 0;
+                px = nx;
+                py = ny;
+                mapa4[px][py] = characters;
+            }
+            else if (celda == exit)
+            {
+                cout << "\n¡Has encontrado la SALIDA! \n";
+                system("cls");
+                sleep(1);
+                inicializar_mapa5();
+                copia_nivel5();
+                imprimir_mapa5();
+                mover_personaje_wasd5(player);
+                return;
+            }
+        }
+
+        Sleep(0);
+        system("cls");
+        imprimir_mapa4();
+    }
+}
+
+#endif
