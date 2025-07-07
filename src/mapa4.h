@@ -29,7 +29,7 @@ using namespace std;
 #define eskeletons 4
 #define chests 5
 #define boss 6
-#define exit 7
+#define exits 7
 
 int mapa4[FIL][COL];
 extern character player;
@@ -88,7 +88,7 @@ void imprimir_mapa4()
             case boss:
                 cout << "B";
                 break;
-                case exit:
+                case exits:
                 cout << "X";
                 break;
             default:
@@ -309,7 +309,7 @@ void mover_personaje_wasd4(character &player)
                 py = ny;
                 mapa4[px][py] = characters;
             }
-            else if (celda == exit)
+            else if (celda == exits)
             {
                 // El jugador pasa al siguiente nivel
                 cout << "\t\t\t\t=================================\n";

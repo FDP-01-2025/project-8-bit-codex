@@ -29,7 +29,7 @@ using namespace std;
 #define eskeletons 4
 #define chests 5
 #define boss 6
-#define exit 7
+#define exits 7
 
 int mapa2[FIL][COL];
 extern character player;
@@ -88,7 +88,7 @@ void imprimir_mapa2()
             case boss:
                 cout << "B";
                 break;
-            case exit:
+            case exits:
                 cout << "X";
                 break;
             default:
@@ -306,7 +306,7 @@ void mover_personaje_wasd2(character &player)
                 py = ny;
                 mapa2[px][py] = characters;
             }
-            else if (celda == exit)
+            else if (celda == exits)
             {
                 cout << "\t\t\t\t=================================\n";
                 cout << "\t\t\t\t    You have found the exit      \n";
