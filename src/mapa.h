@@ -17,12 +17,12 @@
 #include "mapa2.h"
 using namespace std;
 
-//se define la altura y el ancho del mapa
+// se define la altura y el ancho del mapa
 #define FIL 28
 #define COL 80
 #define ANCHO_TERMINAL 80
 
-//se define los tipos de celda del mapa
+// se define los tipos de celda del mapa
 #define wall 1
 #define characters 2
 #define zombies 3
@@ -135,7 +135,7 @@ void copia_nivel1()
 // Mueve al personaje según las teclas WASD o flechas
 void mover_personaje_wasd(character &player)
 {
-    
+
     int px = -1, py = -1;
     for (int i = 0; i < FIL; ++i)
     {
@@ -191,7 +191,8 @@ void mover_personaje_wasd(character &player)
                 cout << "\t\t\t\t================================================\n";
                 cout << (opcion == 1 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Inventory\n";
                 cout << (opcion == 2 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Save game\n";
-                cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
+                cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Stats\n";
+                cout << (opcion == 4 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
                 cout << "\t\t\t\t================================================\n";
 
                 tecla = getch();
@@ -203,13 +204,13 @@ void mover_personaje_wasd(character &player)
                 case 'W':
                     opcion--;
                     if (opcion < 1)
-                        opcion = 3;
+                        opcion = 4;
                     break;
                 case TECLA_ABAJO:
                 case 's':
                 case 'S':
                     opcion++;
-                    if (opcion > 3)
+                    if (opcion > 4)
                         opcion = 1;
                     break;
                 case ENTER:
@@ -222,6 +223,19 @@ void mover_personaje_wasd(character &player)
                         save(player, className);
                         break;
                     case 3:
+                        cout << "\t\t\t\t======================================================" << endl;
+                        cout << "\t\t\t\tYour character is " << className << endl;
+                        cout << "\t\t\t\tHP: " << player.hp << endl;
+                        cout << "\t\t\t\tDefense: " << player.def << endl;
+                        cout << "\t\t\t\tStrenght:" << player.strength << endl;
+                        cout << "\t\t\t\tdexterity: " << player.dex << endl;
+                        cout << "\t\t\t\tInteligence: " << player.intel << endl;
+                        cout << "\t\t\t\tLuck: " << player.luck << endl;
+                        cout << "\t\t\t\tLevel tower: " << player.tower_level << endl;
+                        cout << "\t\t\t\t======================================================" << endl;
+                        Sleep(2000);
+                        break;
+                    case 4:
                         repite = false;
                         break;
                     }

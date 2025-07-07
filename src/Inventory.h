@@ -17,17 +17,17 @@ void usarObjeto(const string &objeto, character &player)
     if (objeto == "Potion of Life")
     {
         player.hp += 4;
-        cout << "\t\t\t\tYou have cured 20 life points\n";
+        cout << "\t\t\t\tYou have cured 4 life points\n";
     }
     else if (objeto == "Defense Potion")
     {
-        player.def += 4;
-        cout << "\t\t\t\tYour defense has increased by 5\n";
+        player.def += 2;
+        cout << "\t\t\t\tYour defense has increased by 2\n";
     }
     else if (objeto == "Potion of Strength")
     {
-        player.strength += 4;
-        cout << "\t\t\t\tYour strength has increased by 5\n";
+        player.strength += 3;
+        cout << "\t\t\t\tYour strength has increased by 3\n";
     }
     else
     {
