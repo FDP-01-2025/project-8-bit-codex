@@ -1,18 +1,19 @@
+#ifndef TOWER_LEVEL_H
+#define TOWER_LEVEL_H
+
 #include <iostream>
 #include <windows.h>
 #include <fstream>
-#include "src/menu.h"
-#include "src/Inventory.h"
-#include "src/mapa.h"
-#include "src/mapa2.h"
-#include "src/mapa3.h"
-#include "src/mapa4.h"
-#include "src/mapa5.h"
-#include "src/new.h"
-#include "src/utils/Screen.h"
-#include "src/utils/inputs.h"
-#include "src/entities/character.h"
-#include "src/combat.h"
+#include "mapa.h"
+#include "mapa2.h"
+#include "mapa3.h"
+#include "mapa4.h"
+#include "mapa5.h"
+#include "new.h"
+#include "utils/Screen.h"
+#include "utils/inputs.h"
+#include "entities/character.h"
+#include "combat.h"
 
 void load(){
 // loop del juego
@@ -46,4 +47,6 @@ void load(){
             copia_nivel5();
             mover_personaje_wasd5(player);
         }
-    }
+}
+
+#endif

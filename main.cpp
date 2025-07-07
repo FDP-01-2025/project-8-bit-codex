@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <fstream>
 #include "src/menu.h"
 #include "src/Inventory.h"
 #include "src/mapa.h"
@@ -12,17 +13,19 @@
 #include "src/utils/inputs.h"
 #include "src/entities/character.h"
 #include "src/combat.h"
+#include "src/tower_level.h"
 
 using namespace std;
 int itemCount = 0;
 string inventory[MAX_ITEMS];
+
 
 int main()
 {
 
     system("cls");
     int opcion = menu_principal(); //Un filtro para las opciones del menu
-    if (opcion == 1 || opcion == 2)
+    if (opcion == 1 )
     {
         // loop del juego
         int itemCount = 0;
@@ -33,6 +36,10 @@ int main()
         copia_nivel1();
         mover_personaje_wasd(player);
         return 0;
+    }
+    else if(opcion == 2){
+        load();
+    
     }
     cout << "\t\t\t\t=======================\n";
     cout << "\t\t\t\tThank you for playing! \n";
