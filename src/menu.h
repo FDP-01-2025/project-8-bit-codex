@@ -4,7 +4,7 @@
 #include "load.h"
 #include "entities/character.h"
 #include "loading.h"
-#include "imagen.h"
+#include "image.h"
 #include "utils/Screen.h"
 #include "utils/inputs.h"
 #include <iostream>

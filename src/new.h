@@ -5,7 +5,7 @@
 #include <windows.h>
 #include <string>
 #include "entities/character.h"
-#include "imagen.h"
+#include "image.h"
 #include "menu.h"
 #include "Inventory.h"
 #include "utils/Screen.h"
