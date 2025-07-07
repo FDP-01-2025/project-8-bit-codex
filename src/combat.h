@@ -6,8 +6,8 @@
 #include <ctime>
 #include <string>
 #include <cstdlib> 
-#include "entities/character.h" //cambie por la nueva biblioteca "character_visuals.h", caso de error borrar "_visuals".
-#include "entities/enemies.h" //cambie por la nueva biblioteca "enemies_visuals.h", caso de error borrar "_visuals".
+#include "entities/character.h" 
+#include "entities/enemies.h"
 #include "utils/screen.h"
 #include "inventory.h"
 #include "critical.h"
@@ -219,12 +219,7 @@ void combatSystem(character &player, enemies enemy, string &className) {//cambie
     if (player.hp <= 0) {
 
     //Mensaje por si el jugador pierde por manco.
-
-    cout << "\t\t\t\tGAME OVER\n";
-    cout << " " << endl;
-    cout << "\t\t\t\tPress any key to return to main menu...\n";
-        /*Falta agregar funcion para volver al menu principal o volver a cargar desde 
-        la ultima vez que se guardo*/
+        gameOverMenu(player, className);
         getch();
     } else {
     
