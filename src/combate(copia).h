@@ -1,3 +1,7 @@
+/*aqui se copio el archivo de combate original
+para no saturarlo de texto inecesario y poder trabajarlo
+sin la posibilidad de malobrarlo*/
+
 #ifndef COMBAT_H
 #define COMBAT_H
 
@@ -5,9 +9,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
-#include <cstdlib> 
-#include "entities/character.h" //cambie por la nueva biblioteca "character_visuals.h", caso de error borrar "_visuals".
-#include "entities/enemies.h" //cambie por la nueva biblioteca "enemies_visuals.h", caso de error borrar "_visuals".
+#include "entities/character_visuals.h"
+#include "entities/enemies_visuals.h" // Aquí está definido enemyVisuals
 #include "utils/screen.h"
 #include "inventory.h"
 #include "critical.h"
@@ -29,7 +32,6 @@ int calculatePlayerDamage(const character &player) {
     if (player.dex + player.strength > 0) {
         baseDamage = (rand() % (player.dex + player.strength)) + 1;
     }
-    // Estructura solo para el personaje "mage".
     if (player.intel > 0 && player.dex <= 5 && player.strength <= 5) {
         baseDamage += (rand() % player.intel);
     }
@@ -39,18 +41,17 @@ int calculatePlayerDamage(const character &player) {
 // Función para calcular la probabilidad de evasión del jugador en combate.
 bool tryEvade(int luck) { 
     int chance = rand() % 100;
-    return chance < luck; //1 punto en luck es 1% de prob de evadir, ejemplo: 10% de evadir si luck = 10.
+    return chance < luck; // 1 punto en luck es 1% de prob de evadir
 }
 
 // Función para calcular evasión del enemigo
 bool enemyTryEvade() {
     int chance = rand() % 100;
-    return chance < 15; // 15% de probabilidad fija para evadir, no mas de dos veces seguidas para que no sea injusto.
+    return chance < 15; // 15% de probabilidad fija para evadir
 }
 
-// Inicia turno del jugador
+// Turno del jugador
 void playerTurn(character &player, enemies &enemy, PlayerState &state) {
-//void playerTurn(character &player, enemies &enemy, PlayerState &state) cambiar por anterior en caso de error.
     system("cls");
     hideCursor();
     int tecla;
@@ -60,12 +61,12 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
     while (repite) {
         gotoxy(0, 0);
         cout << "\t\t\t\t===================== Your Turn ==========================\n";
-        cout << (option == 1 ? "\t\t\t\t==> Attack\n" : "\t\t\t\t    Attack\n"        );
+        cout << (option == 1 ? "\t\t\t\t==> Attack\n" : "\t\t\t\t    Attack\n" );
         cout << (option == 2 ? "\t\t\t\t==> Use Object\n" : "\t\t\t\t    Use Object\n");
-        cout << (option == 3 ? "\t\t\t\t==> Block\n" : "\t\t\t\t    Block\n"          );
-        cout << "\t\t\t\t========================================================\n"   ;
+        cout << (option == 3 ? "\t\t\t\t==> Block\n" : "\t\t\t\t    Block\n" );
+        cout << "\t\t\t\t========================================================\n";
 
-        tecla = getch();//para ingresar datos en la consola sin presionar enter
+        tecla = getch();
 
         switch (tecla) {
             case TECLA_ARRIBA:
@@ -85,16 +86,13 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                     case 1: { // Atacar
                         system("cls");
                         int baseDamage = calculatePlayerDamage(player);
-                        
-                        // Calcular si hay crítico y el daño final
                         CriticalInfo critInfo = calculateCriticalDamage(player, baseDamage);
-                        
-                        // Mostrar mensaje de crítico si aplica
+
                         if (critInfo.isCritical) {
                             displayCriticalMessage(player);
                             Sleep(800);
                         }
-                        //eliminar "data" si presenta errores
+
                         if (enemy.hp - critInfo.damage <= 0) {
                             enemy.hp = 0;
                             cout << "\t\t\t\tEnemy defeated!\n";
@@ -102,8 +100,7 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                         } else {
                             enemy.hp -= critInfo.damage;
                             if (critInfo.isCritical) {
-                                cout << "\t\t\t\tCritical hit! You dealt " << critInfo.damage 
-                                     << " damage (x" << critInfo.multiplier << ")!\n";
+                                cout << "\t\t\t\tCritical hit! You dealt " << critInfo.damage << " damage (x" << critInfo.multiplier << ")!\n";
                             } else {
                                 cout << "\t\t\t\tYou hit the enemy for " << critInfo.damage << " damage.\n";
                             }
@@ -114,21 +111,21 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
                     }
                     case 2: // Usar objeto
                         Inventory(); // Abre el menú de inventario
-                        system ("cls");
+                        system("cls");
                         break;
-                    case 3: // Accion de combate bloquear
+                    case 3: // Bloquear
                         if (state.blockUses > 0) {
                             state.isBlocking = true;
                             state.blockUses--;
 
-                            if (state.blockUses == 2) {  //Primer uso
-                                state.defenseBoost = 50; // Bloqueo total de daño
+                            if (state.blockUses == 2) {
+                                state.defenseBoost = 50;
                                 state.evasionBoost = 50;
-                            } else if (state.blockUses == 1) { //Segundo uso
-                                state.defenseBoost = 30;       //Bloqueo pierde efectividad
+                            } else if (state.blockUses == 1) {
+                                state.defenseBoost = 30;
                                 state.evasionBoost = 30;
-                            } else if (state.blockUses == 0) {//Tercer uso
-                                state.defenseBoost = 10;      //Bloqueo casi agotado
+                            } else if (state.blockUses == 0) {
+                                state.defenseBoost = 10;
                                 state.evasionBoost = 10;
                             }
 
@@ -150,24 +147,21 @@ void playerTurn(character &player, enemies &enemy, PlayerState &state) {
 }
 
 // Turno del enemigo
-void enemyTurn(character &player, enemies &enemy, PlayerState &state) {
-//void enemyTurn(character &player, enemies &enemy, PlayerState &state) cambiar por anterior en caso de fallos
+void enemyTurn(character &player, const enemies &enemy, PlayerState &state) {
     system("cls");
     static bool lastEnemyEvaded = false;
 
     cout << "\t\t\t\tEnemy's Turn...\n";
 
-// Si no evadió en el último turno, y hay suerte, puede evadir ahora
-if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
-    cout << "\t\t\t\tThe enemy evades your previous attack!\n";
-    lastEnemyEvaded = true;
-    Sleep(1000);
-    return;
-} else {
-    lastEnemyEvaded = false; // Permitir evadir en próximo turno
-}
+    if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
+        cout << "\t\t\t\tThe enemy evades your previous attack!\n";
+        lastEnemyEvaded = true;
+        Sleep(1000);
+        return;
+    } else {
+        lastEnemyEvaded = false;
+    }
 
-    // Si está bloqueando, aplicar efectos
     if (state.isBlocking) {
         int finalDefense = player.def + state.defenseBoost;
         int evadeChance = player.luck + state.evasionBoost;
@@ -187,49 +181,46 @@ if (!lastEnemyEvaded && (rand() % 100) < 20 && enemyTryEvade()) {
         }
     }
 
-    // Ataque normal
     int damage = max(20, enemy.strength - (player.def / 2));
     player.hp -= damage;
     cout << "\t\t\t\tYou were hit for " << damage << " damage.\n";
     Sleep(1000);
 }
 
-// Sistema principal de combate.
-void combatSystem(character &player,enemies &enemy, string &className) {//cambie el enemies &enemy a enmies enemy para probar
-//void combatSystem(character &player, enemies enemy, string &className) pegar anterior en caso de error
-    
+// Sistema principal de combate
+void combatSystem(character &player, enemyVisuals &enemy, string &className) {
     srand(time(0));
     PlayerState state;
     int turnCounter = 0;
 
-   while (player.hp > 0 && enemy.hp > 0) {
+    system("cls");
+    cout << enemy.image; // Muestra la imagen ASCII del enemigo
+    cout << "\nGet ready for battle!\n";
+    Sleep(1500);
+    system("cls");
+
+    while (player.hp > 0 && enemy.data.hp > 0) {
         turnCounter++;
 
-        playerTurn(player, enemy, state);
-        if (enemy.hp <= 0) break;
+        playerTurn(player, enemy.data, state);
+        if (enemy.data.hp <= 0) break;
 
-        enemyTurn(player, enemy, state);
+        enemyTurn(player, enemy.data, state);
         if (player.hp <= 0) break;
     }
+
     system("cls");
 
     if (player.hp <= 0) {
-
-    //Mensaje por si el jugador pierde por manco.
-
-    cout << "\t\t\t\tGAME OVER\n";
-    cout << " " << endl;
-    cout << "\t\t\t\tPress any key to return to main menu...\n";
-        /*Falta agregar funcion para volver al menu principal o volver a cargar desde 
-        la ultima vez que se guardo*/
+        cout << "\t\t\t\tGAME OVER\n";
+        cout << " " << endl;
+        cout << "\t\t\t\tPress any key to return to main menu...\n";
         getch();
     } else {
-    
         cout << "\t\t\t\tPREY SLAUGHTERED\n";
         cout << " " << endl;
-        cout << "\t\t\t\tYou gained 1 level!\n"; //Informa al jugador que gano un nivel
-        
-        player.level++; //Nivel del jugador aumenta
+        cout << "\t\t\t\tYou gained 1 level!\n";
+        player.level++;
         Sleep(2000);
     }
 }

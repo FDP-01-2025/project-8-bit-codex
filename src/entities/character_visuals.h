@@ -6,7 +6,15 @@
 
 // Estructura que combina datos del personaje + su imagen ASCII
 struct characterVisuals {
-    character data;         // Datos del personaje (hp, strength,etc)
+    character level;
+    character hp;
+    character def;
+    character strength;
+    character dex;
+    character intel;
+    character luck;
+    character object;
+    character tower_level;         // Datos del personaje (hp, strength,etc)
     const char* image;      // Puntero a la imagen ASCII
 };
 
