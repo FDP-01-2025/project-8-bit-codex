@@ -56,6 +56,7 @@ void inicializar_mapa2()
 
 void imprimir_mapa2()
 {
+    gotoxy(0, 0);
     int espacios = (ANCHO_TERMINAL - COL) / 2;
     for (int i = 0; i < FIL; ++i)
     {
@@ -312,7 +313,6 @@ void mover_personaje_wasd2(character &player)
         }
 
         Sleep(0);
-        system("cls");
         imprimir_mapa2();
     }
 }

@@ -55,7 +55,8 @@ void inicializar_mapa()
 }
 
 void imprimir_mapa()
-{  
+{
+    gotoxy(0, 0);
     int espacios = (ANCHO_TERMINAL - COL) / 2;
     for (int i = 0; i < FIL; ++i)
     {
@@ -273,7 +274,8 @@ void mover_personaje_wasd(character &player)
                 {
                     addToInventory(objeto);
                 }
-                else if(objeto == "Enemy Encountered"){
+                else if (objeto == "Enemy Encountered")
+                {
                     combatSystem(player, zombie, className);
                 }
                 sleep(2);
@@ -285,7 +287,7 @@ void mover_personaje_wasd(character &player)
             }
             else if (celda == boss)
             {
-                system ("cls");
+                system("cls");
                 cout << "\t\t\t\t=================================\n";
                 cout << "\t\t\t\t      You face the final boss    \n";
                 cout << "\t\t\t\t=================================\n";
@@ -314,7 +316,6 @@ void mover_personaje_wasd(character &player)
             }
 
             Sleep(0);
-            system("cls");
             imprimir_mapa();
         }
     }
