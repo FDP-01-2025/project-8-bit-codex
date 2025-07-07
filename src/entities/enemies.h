@@ -1,7 +1,7 @@
 #ifndef enemies_H
 #define enemies_H
-
-struct enemies
+//Estructura de enemigos
+struct enemies//Stadisticas de un enemigos base
 {
     int hp;
     int strength;

@@ -15,7 +15,7 @@ void new_game(character &player, string &className);
 
 void new_game(character &player, string &className)
 {
-    hideCursor();
+    hideCursor(); //Esconde el cursor al ejecutar
     int tecla;
     bool repite = true;
     int opcion = 1;
@@ -30,9 +30,9 @@ void new_game(character &player, string &className)
         cout << (opcion == 3 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Knight" << endl;
         cout << (opcion == 4 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Berserk" << endl;
 
-        tecla = getch();
+        tecla = getch();//Windows detecta las teclas
 
-        switch (tecla)
+        switch (tecla)//Switch para un menu funcional con WASD y las flechas
         {
         case TECLA_ARRIBA:
         case 'w':
