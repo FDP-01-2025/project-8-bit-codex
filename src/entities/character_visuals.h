@@ -11,12 +11,12 @@ struct characterVisuals {
 };
 
 // Aqui se asocia cada personaje con su respectiva imagen ASCII para ser usado en un cpp
-extern const characterVisuals image_knight;
+extern const characterVisuals knight_with_image;
 
-extern const characterVisuals image_assasin;
+extern const characterVisuals assasin_with_image;
 
-extern const characterVisuals image_mage;
+extern const characterVisuals mage_with_image;
 
-extern const characterVisuals image_berserk;
+extern const characterVisuals berserk_with_image;
 
 #endif
