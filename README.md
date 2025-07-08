@@ -1,6 +1,5 @@
 # Proyecto de C++ - Tower of souls
 
-Logo:
 ![Logo](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Logo.png)
 
 
