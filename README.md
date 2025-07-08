@@ -1,7 +1,7 @@
 # Proyecto de C++ - Tower of souls
 
 Logo:
-![alt text](https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Logo.png)
+![Logo](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Logo.png)
 
 
 ## Descripción del Proyecto
