@@ -43,11 +43,7 @@ void gameOverMenu(character &player, string &className) {
         cout << "\t\t\t\t                    *** GAME OVER ***                   \n";
         cout << "\t\t\t\t                Your journey ends here...               \n";
         cout << "\t\t\t\t========================================================\n";
-        cout << "\t\t\t\t                What would you like to do?              \n";
-        cout << "\t\t\t\t========================================================\n";
-        cout << (opcion == 1 ? "\t\t\t\t==> " : "\t\t\t\t    ") << "Load from last save\n";
-        cout << (opcion == 2 ? "\t\t\t\t==> " : "\t\t\t\t    ") << "Return to Main Menu\n";
-        cout << (opcion == 3 ? "\t\t\t\t==> " : "\t\t\t\t    ") << "Exit Game\n";
+        cout << (opcion == 1 ? "\t\t\t\t==> " : "\t\t\t\t    ") << "Exit Game\n";
         cout << "\t\t\t\t========================================================\n";
 
         tecla = getch();
@@ -57,35 +53,17 @@ void gameOverMenu(character &player, string &className) {
             case 'w':
             case 'W':
                 opcion--;
-                if (opcion < 1) opcion = 3;
+                if (opcion < 1) opcion = 1;
                 break;
             case TECLA_ABAJO:
             case 's':
             case 'S':
                 opcion++;
-                if (opcion > 3) opcion = 1;
+                if (opcion > 1) opcion = 1;
                 break;
             case ENTER:
                 switch (opcion) {
-                    case 1: // Cargar desde la ultima vez que se guardo
-                        system("cls");
-                        cout << "\t\t\t\tLoading from last save...\n";
-                        Sleep(1000);
-                        if (load_game(player, const_cast<string&>(className))) {
-                            cout << "\t\t\t\tGame loaded successfully!\n";
-                            Sleep(1000);
-                            repite = false;
-                        } else {
-                            cout << "\t\t\t\tNo save file found. Press any key to continue...\n";
-                            getch();
-                        }
-                        break;
-                    case 2: // Volver al menu principal
-                        system("cls");
-                        returnToMainMenu();
-                        repite = false;
-                        break;
-                    case 3: // Salir del juego
+                    case 1: // Salir del juego
                         system("cls");
                         cout << "\t\t\t\t=======================\n";
                         cout << "\t\t\t\tThank you for playing! \n";

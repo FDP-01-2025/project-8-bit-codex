@@ -29,8 +29,8 @@ int main()
         // loop del juego
         gotoxy(0, 0);
         hideCursor();
-        copia_nivel1();
-        mover_personaje_wasd(player);
+        copy1();
+        move_pj_wasd(player);
         return 0;
     }
     else if (opcion == 2)
