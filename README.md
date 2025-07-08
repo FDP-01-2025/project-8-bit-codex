@@ -30,14 +30,14 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
 
 ## Aplicación de los temas vistos
 
-**if, Else, Else-If:** Se usan para verificar el contenido de cada celda del mapa y decidir acciones.
-**For:** Se utiliza para imprimir el mapa en pantalla.
-**While, Dowhile:** Controlan el bucle principal del juego
-**Switch:** Se usa en el menú interactivo para seleccionar opciones.
-**Functions:** El sistema de combate
-**Arrays:** El mapa se almacenan en arrays.
-**Structs:** Se definen los personajes y enemigos como structs.
-**Archivos**: Se implementa guardado y carga de partida usando archivos.
+**if, Else, Else-If:** Se usan para verificar el contenido de cada celda del mapa y decidir acciones. 
+**For:** Se utiliza para imprimir el mapa en pantalla. 
+**While, Dowhile:** Controlan el bucle principal del juego 
+**Switch:** Se usa en el menú interactivo para seleccionar opciones. 
+**Functions:** El sistema de combate 
+**Arrays:** El mapa se almacenan en arrays. 
+**Structs:** Se definen los personajes y enemigos como structs. 
+**Archivos**: Se implementa guardado y carga de partida usando archivos. 
 
 ## Mockup del juego
 
