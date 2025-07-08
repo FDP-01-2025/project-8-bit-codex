@@ -43,8 +43,10 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
 
 -Pantalla de Inicio:
 ![Pantalla de Inicio](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Main.png)
+
 -Mapa: 
 ![Mapa](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Map.png)
+
 -Combate:
 ![Combate](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Combat.png)
 
