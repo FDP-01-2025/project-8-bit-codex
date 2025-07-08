@@ -88,3 +88,4 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
    ```bash
    main.exe
    ```
+5. Visualizarlo en pantalla completa. 
