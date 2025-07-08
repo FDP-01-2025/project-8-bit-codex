@@ -1,7 +1,7 @@
 # Proyecto de C++ - Tower of souls
 
 Logo:
-![alt text](https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Logo.png "Logo: Tower of souls")
+(https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Logo.png)
 
 
 ## Descripción del Proyecto
@@ -42,11 +42,11 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
 ## Mockup del juego
 
 Pantalla de Inicio:
-![alt text](https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Main.png "Inicio")
+(https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Main.png)
 Mapa: 
-![alt text](https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Map.png "Mapa")
+(https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Map.png)
 Combate:
-![alt text](https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Combat.png "Combate")
+(https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Combat.png)
 
 ## Equipo
 
