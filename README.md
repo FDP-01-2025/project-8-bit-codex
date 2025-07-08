@@ -1,39 +1,55 @@
 # Proyecto de C++ - Tower of souls
 
+Logo:
+![alt text](https://github.com/FDP-01-2025/project-8-bit-codex.git/References/Logo.png)
+
+
 ## Descripción del Proyecto
 
-Tower of Souls es un juego de acción RPG por consola donde el jugador debe ascender la Torre de la almas, enfrentando enemigos y jefes en cada piso. El objetivo es llegar a la cima superando desafíos y recolectando objetos. Cada piso presenta enemigos únicos y un jefe final, y el jugador puede encontrar objetos que le ayudarán en su aventura. El juego está desarrollado completamente en C++ y se ejecuta en la terminal, sin dependencias externas.
+Tower of Souls es un juego de acción RPG por consola donde el jugador debe ascender la Torre de almas, enfrentando enemigos y jefes en cada piso. El objetivo es llegar a la cima superando desafíos y recolectando objetos. Cada piso presenta enemigos únicos y un jefe final, y el jugador puede encontrar objetos que le ayudarán en su aventura. El juego está desarrollado completamente en C++ y se ejecuta en la terminal, sin dependencias externas.
 
 ## Mecánica Principal y Jugabilidad
 1. **Objetivo principal:** Supera los 5 niveles de la Torre 
 
-2. **Sistema de combate:** Combate por turno
+2. **Tematica principal:** RPG - Medieval magico
 
-3. **Controles:** 
+3. **Sistema de combate:** Combate por turno
+
+4. **Controles:** 
 - Mover personaje: WASD o  ↑ ↓ → ← 
 - Inventario: ESC o I
 - Aceptar: ENTER
 
-4. **Mapa:**
+5. **Mapa:**
+- *: Personaje
 - Z : Zombies
 - E : Esqueletos
 - B : Jefe de Piso 
 - X : Salida
 - $ : Cofres
 
-## Structura
+## Aplicación de los temas vistos
 
-```
-8-Bit Codex/
-├── if, Else, Else-If (Verificar celdas de mapa)
-├── For (Imprimir el mapa)
-├── While, Dowhile (Bucle del juego)
-├── Switch (Menu interactivo)
-├── Functions (combatSystem)
-├── Arrays (Mapas)
-├── Structs (Struct character y enemies)
-└── Archivos (Save y Load)
-```
+**if, Else, Else-If:** Se usan para verificar el contenido de cada celda del mapa y decidir acciones. 
+**For:** Se utiliza para imprimir el mapa en pantalla. 
+**While, Dowhile:** Controlan el bucle principal del juego 
+**Switch:** Se usa en el menú interactivo para seleccionar opciones. 
+**Functions:** El sistema de combate 
+**Arrays:** El mapa se almacenan en arrays. 
+**Structs:** Se definen los personajes y enemigos como structs. 
+**Archivos**: Se implementa guardado y carga de partida usando archivos. 
+
+## Mockup del juego
+
+-Pantalla de Inicio:
+![Pantalla de Inicio](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Main.png)
+
+-Mapa:
+
+![Mapa](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Map.png)
+
+-Combate:
+![Combate](https://raw.githubusercontent.com/FDP-01-2025/project-8-bit-codex/main/References/Combat.png)
 
 ## Equipo
 
@@ -67,7 +83,7 @@ Tower of Souls es un juego de acción RPG por consola donde el jugador debe asce
 
 3. Ejecuta el siguiente comando:
    ```bash
-   g++ -o main.cpp
+    g++ main.cpp -o main   
    ```
 4. Ejecuta el programa generado:
    ```bash

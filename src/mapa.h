@@ -31,15 +31,15 @@ using namespace std;
 #define boss 6
 #define exits 7
 
-int mapa[FIL][COL];
+int map[FIL][COL];
 extern character player;
-void imprimir_mapa();
-void copia_nivel1();
-void inicializar_mapa();
-void mover_personaje_wasd();
+void print_map();
+void copy1();
+void initialize();
+void move_pj_wasd();
 
 // Inicializa el mapa con paredes y espacios vacíos
-void inicializar_mapa()
+void initialize()
 {
     for (int i = 0; i < FIL; ++i)
     {
@@ -47,28 +47,28 @@ void inicializar_mapa()
         {
             if (i == 0 || i == FIL - 1 || j == 0 || j == COL - 1)
             {
-                mapa[i][j] = 1;
+                map[i][j] = 1;
             }
             else
             {
-                mapa[i][j] = 0;
+                map[i][j] = 0;
             }
         }
     }
 }
 
 // Imprime el mapa en la consola
-void imprimir_mapa()
+void print_map()
 {
     gotoxy(0, 0);
-    int espacios = (ANCHO_TERMINAL - COL) / 2;
+    int spaces = (ANCHO_TERMINAL - COL) / 2;
     for (int i = 0; i < FIL; ++i)
     {
-        for (int s = 0; s < espacios; ++s)
+        for (int s = 0; s < spaces; ++s)
             cout << " ";
         for (int j = 0; j < COL; ++j)
         {
-            switch (mapa[i][j])
+            switch (map[i][j])
             {
             case wall:
                 cout << "#";
@@ -100,9 +100,9 @@ void imprimir_mapa()
     }
 }
 
-void copia_nivel1()
+void copy1()
 {
-    int nivel1[FIL][COL] = {
+    int level1[FIL][COL] = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 1, 1},
         {1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
@@ -129,11 +129,11 @@ void copia_nivel1()
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
     for (int i = 0; i < FIL; ++i)
         for (int j = 0; j < COL; ++j)
-            mapa[i][j] = nivel1[i][j];
+            map[i][j] = level1[i][j];
 }
 
 // Mueve al personaje según las teclas WASD o flechas
-void mover_personaje_wasd(character &player)
+void move_pj_wasd(character &player)
 {
 
     int px = -1, py = -1;
@@ -141,7 +141,7 @@ void mover_personaje_wasd(character &player)
     {
         for (int j = 0; j < COL; ++j)
         {
-            if (mapa[i][j] == 2)
+            if (map[i][j] == 2)
             {
                 px = i;
                 py = j;
@@ -151,12 +151,12 @@ void mover_personaje_wasd(character &player)
         if (px != -1)
             break;
     }
-    imprimir_mapa();
+    print_map();
     while (true)
     {
-        char tecla = _getch();
+        char key = _getch();
         int nx = px, ny = py;
-        switch (tecla)
+        switch (key)
         {
         case 'w':
         case 'W':
@@ -181,7 +181,7 @@ void mover_personaje_wasd(character &player)
         case 'i':
         case 'I':
         case ESC:
-            int tecla;
+            int key;
             bool repite = true;
             int opcion = 1;
             do
@@ -195,9 +195,9 @@ void mover_personaje_wasd(character &player)
                 cout << (opcion == 4 ? "\t\t\t\t==> " : "  \t\t\t\t    ") << "  Exit\n";
                 cout << "\t\t\t\t================================================\n";
 
-                tecla = getch();
+                key = getch();
 
-                switch (tecla)
+                switch (key)
                 {
                 case TECLA_ARRIBA:
                 case 'w':
@@ -246,15 +246,15 @@ void mover_personaje_wasd(character &player)
         }
         if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL)
         {
-            int celda = mapa[nx][ny];
+            int celda = map[nx][ny];
 
             if (celda == 0)
             {
                 // Movimiento libre
-                mapa[px][py] = 0;
+                map[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa[px][py] = characters;
+                map[px][py] = characters;
             }
             else if (celda == zombies)
             {
@@ -265,11 +265,11 @@ void mover_personaje_wasd(character &player)
                 image_zombie();
                 sleep(2);
                 combatSystem(player, zombie, className);
-                mapa[nx][ny] = 0; // Elimina el zombi
-                mapa[px][py] = 0;
+                map[nx][ny] = 0; // Elimina el zombi
+                map[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa[px][py] = characters;
+                map[px][py] = characters;
             }
             else if (celda == eskeletons)
             {
@@ -280,11 +280,11 @@ void mover_personaje_wasd(character &player)
                 image_eskeleton();
                 sleep(2);
                 combatSystem(player, skeleton, className);
-                mapa[nx][ny] = 0; // Elimina el esqueleto
-                mapa[px][py] = 0;
+                map[nx][ny] = 0; // Elimina el esqueleto
+                map[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa[px][py] = characters;
+                map[px][py] = characters;
             }
             else if (celda == chests)
             {
@@ -300,11 +300,11 @@ void mover_personaje_wasd(character &player)
                 }
                 sleep(2);
                 system("cls");
-                mapa[nx][ny] = 0; // Quita el cofre
-                mapa[px][py] = 0;
+                map[nx][ny] = 0; // Quita el cofre
+                map[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa[px][py] = characters;
+                map[px][py] = characters;
             }
             else if (celda == boss)
             {
@@ -315,11 +315,11 @@ void mover_personaje_wasd(character &player)
                 image_spider();
                 Sleep(3000);
                 combatSystem(player, Spider, className);
-                mapa[nx][ny] = 0; // Quita el jefe
-                mapa[px][py] = 0;
+                map[nx][ny] = 0; // Quita el jefe
+                map[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa[px][py] = characters;
+                map[px][py] = characters;
             }
             else if (celda == exits)
             {
@@ -331,14 +331,14 @@ void mover_personaje_wasd(character &player)
                 sleep(1);
                 system("cls");
                 sleep(1);
-                inicializar_mapa2();
-                copia_nivel2();
-                mover_personaje_wasd2(player);
+                initialize2();
+                copy2();
+                move_pj_wasd2(player);
                 return;
             }
 
             Sleep(0);
-            imprimir_mapa();
+            print_map();
         }
     }
 }

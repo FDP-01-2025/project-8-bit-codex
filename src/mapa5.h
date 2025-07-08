@@ -29,14 +29,14 @@ using namespace std;
 #define chests 5
 #define boss 6
 
-int mapa5[FIL][COL];
+int map5[FIL][COL];
 extern character player;
-void imprimir_mapa5();
-void copia_nivel5();
-void inicializar_mapa5();
-void mover_personaje_wasd5();
+void print_map5();
+void copy5();
+void initialize5();
+void move_pj_wasd5();
 
-void inicializar_mapa5()
+void initialize5()
 {
     for (int i = 0; i < FIL; ++i)
     {
@@ -44,18 +44,18 @@ void inicializar_mapa5()
         {
             if (i == 0 || i == FIL - 1 || j == 0 || j == COL - 1)
             {
-                mapa5[i][j] = 1;
+                map5[i][j] = 1;
             }
             else
             {
-                mapa5[i][j] = 0;
+                map5[i][j] = 0;
             }
         }
     }
 }
 
 // Imprime el mapa en la consola
-void imprimir_mapa5()
+void print_map5()
 {
     gotoxy(0, 0);
     int espacios = (ANCHO_TERMINAL - COL) / 2;
@@ -65,7 +65,7 @@ void imprimir_mapa5()
             cout << " ";
         for (int j = 0; j < COL; ++j)
         {
-            switch (mapa5[i][j])
+            switch (map5[i][j])
             {
             case wall:
                 cout << "#";
@@ -94,7 +94,7 @@ void imprimir_mapa5()
     }
 }
 
-void copia_nivel5()
+void copy5()
 {
     int nivel5[FIL][COL] = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -125,11 +125,11 @@ void copia_nivel5()
     };
     for (int i = 0; i < FIL; ++i)
         for (int j = 0; j < COL; ++j)
-            mapa5[i][j] = nivel5[i][j];
+            map5[i][j] = nivel5[i][j];
 }
 
 // Mueve al personaje en el mapa usando las teclas WASD o flechas
-void mover_personaje_wasd5(character &player)
+void move_pj_wasd5(character &player)
 {
     player.tower_level++;
     int px = -1, py = -1;
@@ -137,7 +137,7 @@ void mover_personaje_wasd5(character &player)
     {
         for (int j = 0; j < COL; ++j)
         {
-            if (mapa5[i][j] == 2)
+            if (map5[i][j] == 2)
             {
                 px = i;
                 py = j;
@@ -147,7 +147,7 @@ void mover_personaje_wasd5(character &player)
         if (px != -1)
             break;
     }
-    imprimir_mapa5();
+    print_map5();
     while (true)
     {
         char tecla = _getch();
@@ -228,15 +228,15 @@ void mover_personaje_wasd5(character &player)
         }
         if (nx >= 0 && nx < FIL && ny >= 0 && ny < COL)
         {
-            int celda = mapa5[nx][ny];
+            int celda = map5[nx][ny];
 
             if (celda == 0)
             {
                 // Movimiento libre
-                mapa5[px][py] = 0;
+                map5[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa5[px][py] = characters;
+                map5[px][py] = characters;
             }
             else if (celda == zombies)
             {
@@ -247,11 +247,11 @@ void mover_personaje_wasd5(character &player)
                 image_zombie();
                 sleep(2);
                 combatSystem(player, zombie, className);
-                mapa5[nx][ny] = 0; // Elimina el zombi
-                mapa5[px][py] = 0;
+                map5[nx][ny] = 0; // Elimina el zombi
+                map5[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa5[px][py] = characters;
+                map5[px][py] = characters;
             }
             else if (celda == eskeletons)
             {
@@ -262,11 +262,11 @@ void mover_personaje_wasd5(character &player)
                 image_eskeleton();
                 sleep(2);
                 combatSystem(player, skeleton, className);
-                mapa5[nx][ny] = 0; // Elimina el esqueleto
-                mapa5[px][py] = 0;
+                map5[nx][ny] = 0; // Elimina el esqueleto
+                map5[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa5[px][py] = characters;
+                map5[px][py] = characters;
             }
             else if (celda == chests)
             {
@@ -282,11 +282,11 @@ void mover_personaje_wasd5(character &player)
                 }
                 sleep(2);
                 system("cls");
-                mapa5[nx][ny] = 0; // Quita el cofre
-                mapa5[px][py] = 0;
+                map5[nx][ny] = 0; // Quita el cofre
+                map5[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa5[px][py] = characters;
+                map5[px][py] = characters;
             }
             else if (celda == boss)
             {
@@ -301,16 +301,16 @@ void mover_personaje_wasd5(character &player)
                     cout << "\t\t\t\t=======================\n";
                     cout << "\t\t\t\tThank you for playing! \n";
                     cout << "\t\t\t\t=======================\n";
-                mapa5[nx][ny] = 0; // Quita el jefe
-                mapa5[px][py] = 0;
+                map5[nx][ny] = 0; // Quita el jefe
+                map5[px][py] = 0;
                 px = nx;
                 py = ny;
-                mapa5[px][py] = characters;
+                map5[px][py] = characters;
             }
         }
 
         Sleep(0);
-        imprimir_mapa5();
+        print_map5();
     }
 }
 
